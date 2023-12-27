@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{0CA4B783-7DED-44BE-861A-D23A20730163}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vs.proj">
+      <UniqueIdentifier>{2CE2AC29-0BEB-4C66-BE65-33D8AAAE505B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{3c529202-a8a9-4f8a-919c-2334789c2c94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pb">
+      <UniqueIdentifier>{cb0b7138-ed7c-4a7c-851d-62abd130775b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mojocall.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pyspt.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\vs.proj\stdafx.cpp">
+      <Filter>vs.proj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\wechatocr.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ocr_protobuf.pb.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\mojocall.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\pyspt.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vs.proj\stdafx.h">
+      <Filter>vs.proj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\wechatocr.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\mmmojo.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ocr_protobuf.pb.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\pb\ocr_protobuf.proto">
+      <Filter>pb</Filter>
+    </None>
+    <None Include="..\pb\player_protobuf.proto">
+      <Filter>pb</Filter>
+    </None>
+    <None Include="..\pb\utility_protobuf.proto">
+      <Filter>pb</Filter>
+    </None>
+  </ItemGroup>
+</Project>

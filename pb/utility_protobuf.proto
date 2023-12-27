@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package utility_protobuf;
+
+//所有int32都有可能是以下类型: int32,int64,uint32,uint64,sint32,sint64,bool,enum
+
+message InitReqMessage {
+	int32 expire_timestamp = 1;	//猜的
+	int32 type = 2;				//为1
+}
+
+message InitRespMessage {
+	int32 status = 1;			//是否初始化成功 WeChatWin.dll并没有处理这个消息
+}
+
+message ResampleImageReqMessage{
+	string decode_pic = 1;		//解码图片的路径
+	string encode_pic = 2;		//原始加密图片的路径
+	int32 re_pic_x = 3;			//图片长
+	int32 re_pic_y = 4;			//图片宽
+	int32 unknown_0 = 5;		//未知 一般为1
+}
+
+message ResampleImageRespMessage {
+	int32 err_code = 1;			//可能是 一般为0 错误为8
+}
+
+message TextScanMessage {
+	int32 text_scan_id = 1;		//可能是
+	string pic_path = 2;		//扫描的图片路径
+	int32 have_text = 3;		//是否有文字
+	int32 unknown_0 = 4;		//未知
+	float rate = 5;				//应该是浮点数 图上要是没文字这个字段肯定为0.0
+}
+
+//当使用图片时发送的是1 2(可为空) 3 7 8 9项
+//当在截图中框选时发送的是 4 5 6 7 8 9项
+message QRScanReqMessage {
+	string origin_pic = 1;		//原始图片路径 可选
+	string decode_pic = 2;		//解码后的图片路径 可选
+	int32 unknown_0 = 3;		//未知 可选 一般为0
+	bytes encode_pic_data = 4;	//某种编码后的图片数据 可选
+	int32 encode_pic_x = 5;		//编码图片长	可选
+	int32 encode_pic_y = 6;		//编码图片宽 可选
+	int32 unknown_1 = 7;		//未知 一般为1
+	int32 text_scan_id = 8;		//可能是
+	int32 unknown_3 = 9;		//未知 一般为1
+}
+
+message QRScanRespMessage {
+	message QRScanResult{
+		bytes result = 1;			//二维码识别结果
+		int32 unknow_0 = 2;			//未知 一般为19
+		double unknown_1 = 3;		//未知 可能是浮点数
+		double unknown_2 = 4;		//未知 可能是浮点数
+		int32 unknown_3 = 5;		//未知 一般为1
+	}
+
+	repeated QRScanResult qr_result = 1;
+	int32 unknown_0 = 2;			//未知 一般为1
+}

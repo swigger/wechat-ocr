@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package ocr_protobuf;
+
+message OcrResponse {
+	int32 type = 1;									//第一次运行OCR会有push一次type=1, 正常OCR结束type=0
+	int32 task_id = 2;
+	int32 err_code = 3;				
+
+	message OcrResult {
+		message ResultPos { 						//四个角的坐标 左上 右上 右下 左下
+			message PosXY {
+				float x = 1;
+				float y = 2;
+			}
+
+			repeated PosXY pos = 1;
+		}
+
+		message SingleResult {						//SingleResult是一行结果 OneResult是单字的
+			ResultPos single_pos = 1;
+			bytes single_str_utf8 = 2;				//UTF8格式的字符串
+			float single_rate = 3;					//单行的识别率
+
+			message OneResult {
+				ResultPos one_pos = 1;
+				bytes one_str_utf8 = 2;
+			}
+
+			repeated OneResult one_result = 4;
+			float left = 5;							//识别矩形的left\top\right\bottom的坐标
+			float top = 6;
+			float right = 7;
+			float bottom = 8;
+			int32 unknown_0 = 9;					//未知
+			ResultPos unknown_pos = 10;				//未知
+		}
+
+		repeated SingleResult single_result = 1;	//repeated 每行的结果
+		int32 img_width = 2;
+		int32 img_height = 3;
+	}
+
+	OcrResult ocr_result = 4;
+}
+
+
+message OcrRequest {
+	int32 unknow = 1;								//必定为0
+	int32 task_id = 2;
+
+	message PicPaths {
+		repeated string pic_path = 1;				//不一定是repeadted 猜的
+	}
+
+	PicPaths pic_path = 3;
+}

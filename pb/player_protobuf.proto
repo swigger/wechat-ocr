@@ -1,0 +1,176 @@
+syntax = "proto3";
+
+package player_protobuf;
+
+//WeChatWin: 10011(发) -> 10012(收) -> 10010(发) -> 10030(收) -> 10028(发) -> 10028(发) -> 10030(收) -> 10030(收) -> 10032(收) -> 10030(收) -> 10032(收) -> 10030(收) -> 10014(收) ->
+//WeChatPlayer: 1011(收) -> 10012(发) -> 10010(收) -> 10030(发) -> 10028(收) -> 10028(收) -> 10030(发) -> 10030(发) -> 10032(发) -> 10030(发) -> 10030(发) -> 10030(发) -> 10014(发) -> 
+//所有int32都有可能是以下类型: int32,int64,uint32,uint64,sint32,sint64,bool,enum
+
+message InitReqMessage {
+	int32 expire_timestamp = 1;	//可能是过期时间
+	int32 type = 2;				//为1
+}
+
+message InitRespMessage {
+	int32 status = 1;			//为1
+}
+
+message CreatePlayerCoreReqMessage {
+	int32 player_id = 1;
+	int32 is_post_frame = 2;	//为1
+}
+
+message CreatePlayerCoreRespMessage {
+	int32 player_id = 1;		//可能是 应该是返回1 
+	int32 is_suceess = 2;		//可能是 应该是返回1
+}
+
+message InitPlayerCoreMessage {
+	int32 player_id = 1;			//Player ID
+	string file_name = 2;			//文件名 (不包括最后一个字母 不包括扩展名)
+	string file_path = 3;			//要播放的视频路径
+	int64 file_size = 4;			//网络视频的大小 本地时为0
+	bool is_local = 5;				//视频是来自本地还是网络 为1
+	int32 placeholder_6 = 6;		//为0	
+	int64 media_id = 7;				//为1
+	bool is_audio_mute = 8;			//是否设置静音 为0
+	int64 video_surface = 9;		//窗口句柄
+	float audio_volume = 10;		//音量 为1.0
+	int32 is_repeat = 11;			//是否设置重复播放 为1
+	float speed_ratio = 12;			//播放速率 为1.0
+	int32 max_frame_width = 13;		//为0
+	int32 max_frame_height = 14;	//为0
+	int32 codec_type = 15;			//为-1
+	int64 decoder_type = 16;		//为-1
+}
+
+message InfoPlayerCoreMessage {
+	int32 player_id = 1;	//.
+	string type = 2;		//例如"video decoder type"  "the first shard opened" "Unknow Player Msg" "read the first data packets" "read the key frame packet"... "whether to use p2p"
+	int32 arg = 3;			//未知 106	0 	0 	0 	0... 1
+	int32 unknown_2 = 4;	//1或0 1 	0 	0 	0 	0... 0
+}
+
+//10014 10015 10016 10017 10018
+message PlayerIdMessage {
+	int32 player_id = 1;	
+}
+
+message CurrentPositionMsMessage {
+	int32 unknown = 1;	//为0
+}
+
+message CurrentPositionMsInfo {
+	message MsInfo{
+		int32 player_id = 1;
+		int32 pos = 2;			
+	}
+
+	repeated bytes ms_info = 1;			//这里面是MsInfo序列化
+}
+
+message ResizePlayerCoreMessage {
+	int32 player_id = 1;
+	int32 new_width = 2;
+	int32 new_height = 3;
+}
+
+message VideoSizeChangedPlayerCoreMessage {
+	int32 player_id = 1;
+	int32 org_width = 2;	//可能是
+	int32 org_height = 3;	//可能是
+}
+
+message PreparePlayerCoreMessage {
+	int32 player_id = 1;
+	int32 duration = 2;			//视频时长 时分秒
+}
+
+message StatePlayerCoreMessage {
+	int32 player_id = 1;
+	int32 state = 2;				//4: 开始播放 8: 停止播放
+}
+
+//以下都可能是 没有验证
+
+message AudioMutePlayerCoreMessage {
+	int32 player_id = 1;
+	bool is_audio_mute = 2;
+}
+
+message SeekToPlayerCoreMessage {
+	int32 player_id = 1;
+	int32 pos_ms = 2;
+}
+
+message VideoSurfaceMessage {
+	int32 player_id = 1;
+	int32 window = 2;		//窗口句柄
+}
+
+message AudioVolumePlayerCoreMessage {
+	int32 player_id = 1;
+	float audio_volume = 2;
+}
+
+message RepeatPlayerCoreMessage {
+	int32 player_id = 1;
+	int32 is_repeat = 2;
+}
+
+message SpeedRatioPlayerCoreMessage {
+	int32 player_id = 1;
+	float speed_ratio = 2;
+}
+
+message ReadyDataSourceCoreMessage {
+	int32 player_id = 1;
+	string file_name = 2;
+	string file_path = 3;
+	int64 media_id = 4;
+}
+
+message DownloadDataSourceCoreMessage {
+	int32 player_id = 1;
+	string file_name = 2;
+	string file_path = 3;
+	int64 file_size = 4;
+	int64 media_id = 5;
+}
+
+message ErrorPlayerCoreMessage {
+	int32 player_id = 1;
+	string error = 2;
+	int32 error_type = 3;
+	int32 error_code = 4;
+}
+
+message StartTaskProxyMessage {
+	int32 task_id = 1;
+	int32 player_id = 2;
+}
+
+message StartRequestProxyMessage {
+	int32 task_id = 1;
+	int32 player_id = 2; 
+	int32 request_start = 3;
+	int32 request_end = 4;
+}
+
+message CloseRequestProxyMessage {
+	int32 task_id = 1;
+	int32 player_id = 2;
+}
+
+message PollingDataProxyReqMessage {
+	int32 task_id = 1; 
+	int32 player_id = 2;
+	int32 offset = 3; 
+	int32 ready_size = 4;
+	int32 download_size = 5;
+	int32 read_size=6;
+}
+
+message PollingDataProxyRespMessage {
+	
+}

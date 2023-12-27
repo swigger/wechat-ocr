@@ -1,0 +1,12 @@
+*.o
+*.obj
+*.jpg
+*.png
+*.dll
+*.exp
+*.pdb
+*.lib
+*.user
+!/spt/*.lib
+
+.vs/
