@@ -3,34 +3,6 @@
 #include "ocr_protobuf.pb.h"
 #include "mmmojo.h"
 
-string decode_base64(crefstr sin) {
-	//const char * tbl = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-	string result;
-	uint32_t bits = 0;
-	uint32_t nbits = 0;
-	result.reserve(sin.size() * 3 / 4);
-	for (char ch : sin) {
-		if (ch == '-') ch = '+';
-		else if (ch == '_') ch = '/';
-
-		if (ch == '=') break;
-		else if (ch >= 'A' && ch <= 'Z') ch -= 'A';
-		else if (ch >= 'a' && ch <= 'z') ch -= 'a' - 26;
-		else if (ch >= '0' && ch <= '9') ch -= '0' - 52;
-		else if (ch == '+') ch = 62;
-		else if (ch == '/') ch = 63;
-		else continue;
-		bits = (bits << 6) | (ch&0x3f);
-		nbits += 6;
-		if (nbits >= 8) {
-			nbits -= 8;
-			uint32_t tmp = (bits >> nbits) & 0xff;
-			result.push_back((char)tmp);
-		}
-	}
-	return result;
-}
-
 CWeChatOCR::CWeChatOCR(LPCWSTR exe, LPCWSTR wcdir)
 {
 	m_exe = exe;

@@ -18,7 +18,7 @@ int APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserve
 #ifdef _DEBUG
 // 定义这个函数仅方便使用regsvr32.exe调试本DLL, 使用环境变量WECHATOCR_EXE和WECHAT_DIR以及TEST_PNG传入调试参数
 extern "C" __declspec(dllexport)
-HRESULT WINAPI DllRegisterServer(void)
+HRESULT DllRegisterServer(void)
 {
 	if (AllocConsole()) {
 		(void)freopen("CONOUT$", "w", stdout);
