@@ -21,7 +21,7 @@ CWeChatOCR::CWeChatOCR(LPCWSTR exe, LPCWSTR wcdir)
 	}
 }
 
-#define OCR_MAX_TASK_ID 32			//最大同时发送任务ID, 默认32, 一定要<=32
+#define OCR_MAX_TASK_ID INT_MAX
 bool CWeChatOCR::doOCR(crefstr imgpath, result_t* res)
 {
 	if (m_state == STATE_INVALID || (m_state == STATE_PENDING && !wait_connection(2000)))
@@ -29,7 +29,8 @@ bool CWeChatOCR::doOCR(crefstr imgpath, result_t* res)
 
 	int found_id = -1;
 	m_mutex.lock();
-	for (int i = 1; i <= OCR_MAX_TASK_ID; ++i)
+	// TODO: task_id本身可以是任何正整形数，但是这里要不要限制同时并发任务数呢？
+	for (uint32_t i = 1; i <= OCR_MAX_TASK_ID; ++i)
 	{
 		if (m_idpath.insert(std::make_pair(i, std::pair<string,result_t*>(imgpath,res))).second)
 		{

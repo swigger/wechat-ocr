@@ -47,6 +47,8 @@ message OcrRespond {
 
 message OcrRequest {
 	int32 unknow = 1;								//必定为0
+	// 核查了好几次，在腾讯proto文件中，这个task_id确实是64位的。但在，在执行过程中，高32位会被丢弃，且第32位为1会出错。
+	// 也就是协议上是有64位的uint64，实际上只有31位。必须是>0的整形数字，范围是[12147483647]
 	uint64 task_id = 2;
 
 	message OcrInputBuffer {
