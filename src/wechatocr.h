@@ -19,7 +19,7 @@ protected:
 	std::mutex m_mutex;
 	std::condition_variable m_cv_state, m_cv_idpath;
 	enum state_t { STATE_INVALID, STATE_PENDING, STATE_VALID } m_state = STATE_INVALID;
-	std::map<int, std::pair<string, result_t*>> m_idpath;
+	std::map<uint64_t, std::pair<string, result_t*>> m_idpath;
 
 public:
 	CWeChatOCR(LPCWSTR exe, LPCWSTR wcdir);

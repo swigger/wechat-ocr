@@ -18,118 +18,132 @@ namespace _pb = ::PROTOBUF_NAMESPACE_ID;
 namespace _pbi = _pb::internal;
 
 namespace ocr_protobuf {
-PROTOBUF_CONSTEXPR OcrResponse_OcrResult_ResultPos_PosXY::OcrResponse_OcrResult_ResultPos_PosXY(
+PROTOBUF_CONSTEXPR OcrRespond_OcrBoxPoint::OcrRespond_OcrBoxPoint(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.x_)*/0
-  , /*decltype(_impl_.y_)*/0
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct OcrResponse_OcrResult_ResultPos_PosXYDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR OcrResponse_OcrResult_ResultPos_PosXYDefaultTypeInternal()
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.x_)*/0
+  , /*decltype(_impl_.y_)*/0} {}
+struct OcrRespond_OcrBoxPointDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR OcrRespond_OcrBoxPointDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~OcrResponse_OcrResult_ResultPos_PosXYDefaultTypeInternal() {}
+  ~OcrRespond_OcrBoxPointDefaultTypeInternal() {}
   union {
-    OcrResponse_OcrResult_ResultPos_PosXY _instance;
+    OcrRespond_OcrBoxPoint _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OcrResponse_OcrResult_ResultPos_PosXYDefaultTypeInternal _OcrResponse_OcrResult_ResultPos_PosXY_default_instance_;
-PROTOBUF_CONSTEXPR OcrResponse_OcrResult_ResultPos::OcrResponse_OcrResult_ResultPos(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OcrRespond_OcrBoxPointDefaultTypeInternal _OcrRespond_OcrBoxPoint_default_instance_;
+PROTOBUF_CONSTEXPR OcrRespond_OcrBox::OcrRespond_OcrBox(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.pos_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct OcrResponse_OcrResult_ResultPosDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR OcrResponse_OcrResult_ResultPosDefaultTypeInternal()
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.topleft_)*/nullptr
+  , /*decltype(_impl_.topright_)*/nullptr
+  , /*decltype(_impl_.bottomright_)*/nullptr
+  , /*decltype(_impl_.bottomleft_)*/nullptr} {}
+struct OcrRespond_OcrBoxDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR OcrRespond_OcrBoxDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~OcrResponse_OcrResult_ResultPosDefaultTypeInternal() {}
+  ~OcrRespond_OcrBoxDefaultTypeInternal() {}
   union {
-    OcrResponse_OcrResult_ResultPos _instance;
+    OcrRespond_OcrBox _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OcrResponse_OcrResult_ResultPosDefaultTypeInternal _OcrResponse_OcrResult_ResultPos_default_instance_;
-PROTOBUF_CONSTEXPR OcrResponse_OcrResult_SingleResult_OneResult::OcrResponse_OcrResult_SingleResult_OneResult(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OcrRespond_OcrBoxDefaultTypeInternal _OcrRespond_OcrBox_default_instance_;
+PROTOBUF_CONSTEXPR OcrRespond_OCRResultChar::OcrRespond_OCRResultChar(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.one_str_utf8_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.one_pos_)*/nullptr
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct OcrResponse_OcrResult_SingleResult_OneResultDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR OcrResponse_OcrResult_SingleResult_OneResultDefaultTypeInternal()
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.chars_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.char_box_)*/nullptr} {}
+struct OcrRespond_OCRResultCharDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR OcrRespond_OCRResultCharDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~OcrResponse_OcrResult_SingleResult_OneResultDefaultTypeInternal() {}
+  ~OcrRespond_OCRResultCharDefaultTypeInternal() {}
   union {
-    OcrResponse_OcrResult_SingleResult_OneResult _instance;
+    OcrRespond_OCRResultChar _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OcrResponse_OcrResult_SingleResult_OneResultDefaultTypeInternal _OcrResponse_OcrResult_SingleResult_OneResult_default_instance_;
-PROTOBUF_CONSTEXPR OcrResponse_OcrResult_SingleResult::OcrResponse_OcrResult_SingleResult(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OcrRespond_OCRResultCharDefaultTypeInternal _OcrRespond_OCRResultChar_default_instance_;
+PROTOBUF_CONSTEXPR OcrRespond_OCRResultLine::OcrRespond_OCRResultLine(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.one_result_)*/{}
-  , /*decltype(_impl_.single_str_utf8_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.single_pos_)*/nullptr
-  , /*decltype(_impl_.unknown_pos_)*/nullptr
-  , /*decltype(_impl_.single_rate_)*/0
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.blocks_)*/{}
+  , /*decltype(_impl_.text_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.line_box_)*/nullptr
+  , /*decltype(_impl_.box10_)*/nullptr
+  , /*decltype(_impl_.rate_)*/0
   , /*decltype(_impl_.left_)*/0
   , /*decltype(_impl_.top_)*/0
   , /*decltype(_impl_.right_)*/0
   , /*decltype(_impl_.bottom_)*/0
-  , /*decltype(_impl_.unknown_0_)*/0
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct OcrResponse_OcrResult_SingleResultDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR OcrResponse_OcrResult_SingleResultDefaultTypeInternal()
+  , /*decltype(_impl_.unknown_0_)*/false} {}
+struct OcrRespond_OCRResultLineDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR OcrRespond_OCRResultLineDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~OcrResponse_OcrResult_SingleResultDefaultTypeInternal() {}
+  ~OcrRespond_OCRResultLineDefaultTypeInternal() {}
   union {
-    OcrResponse_OcrResult_SingleResult _instance;
+    OcrRespond_OCRResultLine _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OcrResponse_OcrResult_SingleResultDefaultTypeInternal _OcrResponse_OcrResult_SingleResult_default_instance_;
-PROTOBUF_CONSTEXPR OcrResponse_OcrResult::OcrResponse_OcrResult(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OcrRespond_OCRResultLineDefaultTypeInternal _OcrRespond_OCRResultLine_default_instance_;
+PROTOBUF_CONSTEXPR OcrRespond_OcrOutputBuffer::OcrRespond_OcrOutputBuffer(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.single_result_)*/{}
-  , /*decltype(_impl_.unknown_1_)*/0
-  , /*decltype(_impl_.unknown_2_)*/0
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct OcrResponse_OcrResultDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR OcrResponse_OcrResultDefaultTypeInternal()
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.lines_)*/{}
+  , /*decltype(_impl_.unk4_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.img_width_)*/0u
+  , /*decltype(_impl_.img_height_)*/0u} {}
+struct OcrRespond_OcrOutputBufferDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR OcrRespond_OcrOutputBufferDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~OcrResponse_OcrResultDefaultTypeInternal() {}
+  ~OcrRespond_OcrOutputBufferDefaultTypeInternal() {}
   union {
-    OcrResponse_OcrResult _instance;
+    OcrRespond_OcrOutputBuffer _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OcrResponse_OcrResultDefaultTypeInternal _OcrResponse_OcrResult_default_instance_;
-PROTOBUF_CONSTEXPR OcrResponse::OcrResponse(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OcrRespond_OcrOutputBufferDefaultTypeInternal _OcrRespond_OcrOutputBuffer_default_instance_;
+PROTOBUF_CONSTEXPR OcrRespond::OcrRespond(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.ocr_result_)*/nullptr
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.ocr_result_)*/nullptr
+  , /*decltype(_impl_.task_id_)*/uint64_t{0u}
   , /*decltype(_impl_.type_)*/0
-  , /*decltype(_impl_.task_id_)*/0
-  , /*decltype(_impl_.err_code_)*/0
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct OcrResponseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR OcrResponseDefaultTypeInternal()
+  , /*decltype(_impl_.err_code_)*/0} {}
+struct OcrRespondDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR OcrRespondDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~OcrResponseDefaultTypeInternal() {}
+  ~OcrRespondDefaultTypeInternal() {}
   union {
-    OcrResponse _instance;
+    OcrRespond _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OcrResponseDefaultTypeInternal _OcrResponse_default_instance_;
-PROTOBUF_CONSTEXPR OcrRequest_PicPaths::OcrRequest_PicPaths(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OcrRespondDefaultTypeInternal _OcrRespond_default_instance_;
+PROTOBUF_CONSTEXPR OcrRequest_OcrInputBuffer::OcrRequest_OcrInputBuffer(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.pic_path_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct OcrRequest_PicPathsDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR OcrRequest_PicPathsDefaultTypeInternal()
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.pic_path_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.pic_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.u2_)*/0u
+  , /*decltype(_impl_.u3_)*/0u} {}
+struct OcrRequest_OcrInputBufferDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR OcrRequest_OcrInputBufferDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~OcrRequest_PicPathsDefaultTypeInternal() {}
+  ~OcrRequest_OcrInputBufferDefaultTypeInternal() {}
   union {
-    OcrRequest_PicPaths _instance;
+    OcrRequest_OcrInputBuffer _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OcrRequest_PicPathsDefaultTypeInternal _OcrRequest_PicPaths_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OcrRequest_OcrInputBufferDefaultTypeInternal _OcrRequest_OcrInputBuffer_default_instance_;
 PROTOBUF_CONSTEXPR OcrRequest::OcrRequest(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.pic_path_)*/nullptr
+    /*decltype(_impl_.input_)*/nullptr
+  , /*decltype(_impl_.task_id_)*/uint64_t{0u}
   , /*decltype(_impl_.unknow_)*/0
-  , /*decltype(_impl_.task_id_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct OcrRequestDefaultTypeInternal {
   PROTOBUF_CONSTEXPR OcrRequestDefaultTypeInternal()
@@ -145,44 +159,53 @@ namespace ocr_protobuf {
 
 // ===================================================================
 
-class OcrResponse_OcrResult_ResultPos_PosXY::_Internal {
+class OcrRespond_OcrBoxPoint::_Internal {
  public:
+  using HasBits = decltype(std::declval<OcrRespond_OcrBoxPoint>()._impl_._has_bits_);
+  static void set_has_x(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_y(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
 };
 
-OcrResponse_OcrResult_ResultPos_PosXY::OcrResponse_OcrResult_ResultPos_PosXY(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+OcrRespond_OcrBoxPoint::OcrRespond_OcrBoxPoint(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:ocr_protobuf.OcrResponse.OcrResult.ResultPos.PosXY)
+  // @@protoc_insertion_point(arena_constructor:ocr_protobuf.OcrRespond.OcrBoxPoint)
 }
-OcrResponse_OcrResult_ResultPos_PosXY::OcrResponse_OcrResult_ResultPos_PosXY(const OcrResponse_OcrResult_ResultPos_PosXY& from)
+OcrRespond_OcrBoxPoint::OcrRespond_OcrBoxPoint(const OcrRespond_OcrBoxPoint& from)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  OcrResponse_OcrResult_ResultPos_PosXY* const _this = this; (void)_this;
+  OcrRespond_OcrBoxPoint* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.x_){}
-    , decltype(_impl_.y_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.x_){}
+    , decltype(_impl_.y_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
   ::memcpy(&_impl_.x_, &from._impl_.x_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.y_) -
     reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.y_));
-  // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrResponse.OcrResult.ResultPos.PosXY)
+  // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrRespond.OcrBoxPoint)
 }
 
-inline void OcrResponse_OcrResult_ResultPos_PosXY::SharedCtor(
+inline void OcrRespond_OcrBoxPoint::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.x_){0}
-    , decltype(_impl_.y_){0}
+      decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.x_){0}
+    , decltype(_impl_.y_){0}
   };
 }
 
-OcrResponse_OcrResult_ResultPos_PosXY::~OcrResponse_OcrResult_ResultPos_PosXY() {
-  // @@protoc_insertion_point(destructor:ocr_protobuf.OcrResponse.OcrResult.ResultPos.PosXY)
+OcrRespond_OcrBoxPoint::~OcrRespond_OcrBoxPoint() {
+  // @@protoc_insertion_point(destructor:ocr_protobuf.OcrRespond.OcrBoxPoint)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
   (void)arena;
     return;
@@ -190,43 +213,50 @@ OcrResponse_OcrResult_ResultPos_PosXY::~OcrResponse_OcrResult_ResultPos_PosXY() 
   SharedDtor();
 }
 
-inline void OcrResponse_OcrResult_ResultPos_PosXY::SharedDtor() {
+inline void OcrRespond_OcrBoxPoint::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void OcrResponse_OcrResult_ResultPos_PosXY::SetCachedSize(int size) const {
+void OcrRespond_OcrBoxPoint::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void OcrResponse_OcrResult_ResultPos_PosXY::Clear() {
-// @@protoc_insertion_point(message_clear_start:ocr_protobuf.OcrResponse.OcrResult.ResultPos.PosXY)
+void OcrRespond_OcrBoxPoint::Clear() {
+// @@protoc_insertion_point(message_clear_start:ocr_protobuf.OcrRespond.OcrBoxPoint)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&_impl_.x_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.y_) -
-      reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.y_));
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&_impl_.x_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.y_) -
+        reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.y_));
+  }
+  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* OcrResponse_OcrResult_ResultPos_PosXY::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* OcrRespond_OcrBoxPoint::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // float x = 1;
+      // optional float x = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 13)) {
+          _Internal::set_has_x(&has_bits);
           _impl_.x_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
         continue;
-      // float y = 2;
+      // optional float y = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
+          _Internal::set_has_y(&has_bits);
           _impl_.y_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
@@ -248,6 +278,7 @@ const char* OcrResponse_OcrResult_ResultPos_PosXY::_InternalParse(const char* pt
     CHK_(ptr != nullptr);
   }  // while
 message_done:
+  _impl_._has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -255,28 +286,20 @@ failure:
 #undef CHK_
 }
 
-uint8_t* OcrResponse_OcrResult_ResultPos_PosXY::_InternalSerialize(
+uint8_t* OcrRespond_OcrBoxPoint::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ocr_protobuf.OcrResponse.OcrResult.ResultPos.PosXY)
+  // @@protoc_insertion_point(serialize_to_array_start:ocr_protobuf.OcrRespond.OcrBoxPoint)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // float x = 1;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_x = this->_internal_x();
-  uint32_t raw_x;
-  memcpy(&raw_x, &tmp_x, sizeof(tmp_x));
-  if (raw_x != 0) {
+  // optional float x = 1;
+  if (_internal_has_x()) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(1, this->_internal_x(), target);
   }
 
-  // float y = 2;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_y = this->_internal_y();
-  uint32_t raw_y;
-  memcpy(&raw_y, &tmp_y, sizeof(tmp_y));
-  if (raw_y != 0) {
+  // optional float y = 2;
+  if (_internal_has_y()) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_y(), target);
   }
@@ -285,36 +308,31 @@ uint8_t* OcrResponse_OcrResult_ResultPos_PosXY::_InternalSerialize(
     target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
         static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ocr_protobuf.OcrResponse.OcrResult.ResultPos.PosXY)
+  // @@protoc_insertion_point(serialize_to_array_end:ocr_protobuf.OcrRespond.OcrBoxPoint)
   return target;
 }
 
-size_t OcrResponse_OcrResult_ResultPos_PosXY::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ocr_protobuf.OcrResponse.OcrResult.ResultPos.PosXY)
+size_t OcrRespond_OcrBoxPoint::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ocr_protobuf.OcrRespond.OcrBoxPoint)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // float x = 1;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_x = this->_internal_x();
-  uint32_t raw_x;
-  memcpy(&raw_x, &tmp_x, sizeof(tmp_x));
-  if (raw_x != 0) {
-    total_size += 1 + 4;
-  }
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional float x = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 4;
+    }
 
-  // float y = 2;
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_y = this->_internal_y();
-  uint32_t raw_y;
-  memcpy(&raw_y, &tmp_y, sizeof(tmp_y));
-  if (raw_y != 0) {
-    total_size += 1 + 4;
-  }
+    // optional float y = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 4;
+    }
 
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
@@ -323,98 +341,148 @@ size_t OcrResponse_OcrResult_ResultPos_PosXY::ByteSizeLong() const {
   return total_size;
 }
 
-void OcrResponse_OcrResult_ResultPos_PosXY::CheckTypeAndMergeFrom(
+void OcrRespond_OcrBoxPoint::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::_pbi::DownCast<const OcrResponse_OcrResult_ResultPos_PosXY*>(
+  MergeFrom(*::_pbi::DownCast<const OcrRespond_OcrBoxPoint*>(
       &from));
 }
 
-void OcrResponse_OcrResult_ResultPos_PosXY::MergeFrom(const OcrResponse_OcrResult_ResultPos_PosXY& from) {
-  OcrResponse_OcrResult_ResultPos_PosXY* const _this = this;
-  // @@protoc_insertion_point(class_specific_merge_from_start:ocr_protobuf.OcrResponse.OcrResult.ResultPos.PosXY)
+void OcrRespond_OcrBoxPoint::MergeFrom(const OcrRespond_OcrBoxPoint& from) {
+  OcrRespond_OcrBoxPoint* const _this = this;
+  // @@protoc_insertion_point(class_specific_merge_from_start:ocr_protobuf.OcrRespond.OcrBoxPoint)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_x = from._internal_x();
-  uint32_t raw_x;
-  memcpy(&raw_x, &tmp_x, sizeof(tmp_x));
-  if (raw_x != 0) {
-    _this->_internal_set_x(from._internal_x());
-  }
-  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_y = from._internal_y();
-  uint32_t raw_y;
-  memcpy(&raw_y, &tmp_y, sizeof(tmp_y));
-  if (raw_y != 0) {
-    _this->_internal_set_y(from._internal_y());
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.x_ = from._impl_.x_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.y_ = from._impl_.y_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
-void OcrResponse_OcrResult_ResultPos_PosXY::CopyFrom(const OcrResponse_OcrResult_ResultPos_PosXY& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ocr_protobuf.OcrResponse.OcrResult.ResultPos.PosXY)
+void OcrRespond_OcrBoxPoint::CopyFrom(const OcrRespond_OcrBoxPoint& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ocr_protobuf.OcrRespond.OcrBoxPoint)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool OcrResponse_OcrResult_ResultPos_PosXY::IsInitialized() const {
+bool OcrRespond_OcrBoxPoint::IsInitialized() const {
   return true;
 }
 
-void OcrResponse_OcrResult_ResultPos_PosXY::InternalSwap(OcrResponse_OcrResult_ResultPos_PosXY* other) {
+void OcrRespond_OcrBoxPoint::InternalSwap(OcrRespond_OcrBoxPoint* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(OcrResponse_OcrResult_ResultPos_PosXY, _impl_.y_)
-      + sizeof(OcrResponse_OcrResult_ResultPos_PosXY::_impl_.y_)
-      - PROTOBUF_FIELD_OFFSET(OcrResponse_OcrResult_ResultPos_PosXY, _impl_.x_)>(
+      PROTOBUF_FIELD_OFFSET(OcrRespond_OcrBoxPoint, _impl_.y_)
+      + sizeof(OcrRespond_OcrBoxPoint::_impl_.y_)
+      - PROTOBUF_FIELD_OFFSET(OcrRespond_OcrBoxPoint, _impl_.x_)>(
           reinterpret_cast<char*>(&_impl_.x_),
           reinterpret_cast<char*>(&other->_impl_.x_));
 }
 
-std::string OcrResponse_OcrResult_ResultPos_PosXY::GetTypeName() const {
-  return "ocr_protobuf.OcrResponse.OcrResult.ResultPos.PosXY";
+std::string OcrRespond_OcrBoxPoint::GetTypeName() const {
+  return "ocr_protobuf.OcrRespond.OcrBoxPoint";
 }
 
 
 // ===================================================================
 
-class OcrResponse_OcrResult_ResultPos::_Internal {
+class OcrRespond_OcrBox::_Internal {
  public:
+  using HasBits = decltype(std::declval<OcrRespond_OcrBox>()._impl_._has_bits_);
+  static const ::ocr_protobuf::OcrRespond_OcrBoxPoint& topleft(const OcrRespond_OcrBox* msg);
+  static void set_has_topleft(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static const ::ocr_protobuf::OcrRespond_OcrBoxPoint& topright(const OcrRespond_OcrBox* msg);
+  static void set_has_topright(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static const ::ocr_protobuf::OcrRespond_OcrBoxPoint& bottomright(const OcrRespond_OcrBox* msg);
+  static void set_has_bottomright(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static const ::ocr_protobuf::OcrRespond_OcrBoxPoint& bottomleft(const OcrRespond_OcrBox* msg);
+  static void set_has_bottomleft(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
 };
 
-OcrResponse_OcrResult_ResultPos::OcrResponse_OcrResult_ResultPos(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+const ::ocr_protobuf::OcrRespond_OcrBoxPoint&
+OcrRespond_OcrBox::_Internal::topleft(const OcrRespond_OcrBox* msg) {
+  return *msg->_impl_.topleft_;
+}
+const ::ocr_protobuf::OcrRespond_OcrBoxPoint&
+OcrRespond_OcrBox::_Internal::topright(const OcrRespond_OcrBox* msg) {
+  return *msg->_impl_.topright_;
+}
+const ::ocr_protobuf::OcrRespond_OcrBoxPoint&
+OcrRespond_OcrBox::_Internal::bottomright(const OcrRespond_OcrBox* msg) {
+  return *msg->_impl_.bottomright_;
+}
+const ::ocr_protobuf::OcrRespond_OcrBoxPoint&
+OcrRespond_OcrBox::_Internal::bottomleft(const OcrRespond_OcrBox* msg) {
+  return *msg->_impl_.bottomleft_;
+}
+OcrRespond_OcrBox::OcrRespond_OcrBox(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:ocr_protobuf.OcrResponse.OcrResult.ResultPos)
+  // @@protoc_insertion_point(arena_constructor:ocr_protobuf.OcrRespond.OcrBox)
 }
-OcrResponse_OcrResult_ResultPos::OcrResponse_OcrResult_ResultPos(const OcrResponse_OcrResult_ResultPos& from)
+OcrRespond_OcrBox::OcrRespond_OcrBox(const OcrRespond_OcrBox& from)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  OcrResponse_OcrResult_ResultPos* const _this = this; (void)_this;
+  OcrRespond_OcrBox* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.pos_){from._impl_.pos_}
-    , /*decltype(_impl_._cached_size_)*/{}};
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.topleft_){nullptr}
+    , decltype(_impl_.topright_){nullptr}
+    , decltype(_impl_.bottomright_){nullptr}
+    , decltype(_impl_.bottomleft_){nullptr}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrResponse.OcrResult.ResultPos)
+  if (from._internal_has_topleft()) {
+    _this->_impl_.topleft_ = new ::ocr_protobuf::OcrRespond_OcrBoxPoint(*from._impl_.topleft_);
+  }
+  if (from._internal_has_topright()) {
+    _this->_impl_.topright_ = new ::ocr_protobuf::OcrRespond_OcrBoxPoint(*from._impl_.topright_);
+  }
+  if (from._internal_has_bottomright()) {
+    _this->_impl_.bottomright_ = new ::ocr_protobuf::OcrRespond_OcrBoxPoint(*from._impl_.bottomright_);
+  }
+  if (from._internal_has_bottomleft()) {
+    _this->_impl_.bottomleft_ = new ::ocr_protobuf::OcrRespond_OcrBoxPoint(*from._impl_.bottomleft_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrRespond.OcrBox)
 }
 
-inline void OcrResponse_OcrResult_ResultPos::SharedCtor(
+inline void OcrRespond_OcrBox::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.pos_){arena}
+      decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.topleft_){nullptr}
+    , decltype(_impl_.topright_){nullptr}
+    , decltype(_impl_.bottomright_){nullptr}
+    , decltype(_impl_.bottomleft_){nullptr}
   };
 }
 
-OcrResponse_OcrResult_ResultPos::~OcrResponse_OcrResult_ResultPos() {
-  // @@protoc_insertion_point(destructor:ocr_protobuf.OcrResponse.OcrResult.ResultPos)
+OcrRespond_OcrBox::~OcrRespond_OcrBox() {
+  // @@protoc_insertion_point(destructor:ocr_protobuf.OcrRespond.OcrBox)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
   (void)arena;
     return;
@@ -422,258 +490,82 @@ OcrResponse_OcrResult_ResultPos::~OcrResponse_OcrResult_ResultPos() {
   SharedDtor();
 }
 
-inline void OcrResponse_OcrResult_ResultPos::SharedDtor() {
+inline void OcrRespond_OcrBox::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.pos_.~RepeatedPtrField();
+  if (this != internal_default_instance()) delete _impl_.topleft_;
+  if (this != internal_default_instance()) delete _impl_.topright_;
+  if (this != internal_default_instance()) delete _impl_.bottomright_;
+  if (this != internal_default_instance()) delete _impl_.bottomleft_;
 }
 
-void OcrResponse_OcrResult_ResultPos::SetCachedSize(int size) const {
+void OcrRespond_OcrBox::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void OcrResponse_OcrResult_ResultPos::Clear() {
-// @@protoc_insertion_point(message_clear_start:ocr_protobuf.OcrResponse.OcrResult.ResultPos)
+void OcrRespond_OcrBox::Clear() {
+// @@protoc_insertion_point(message_clear_start:ocr_protobuf.OcrRespond.OcrBox)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.pos_.Clear();
-  _internal_metadata_.Clear<std::string>();
-}
-
-const char* OcrResponse_OcrResult_ResultPos::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // repeated .ocr_protobuf.OcrResponse.OcrResult.ResultPos.PosXY pos = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_pos(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(_impl_.topleft_ != nullptr);
+      _impl_.topleft_->Clear();
     }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<std::string>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* OcrResponse_OcrResult_ResultPos::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ocr_protobuf.OcrResponse.OcrResult.ResultPos)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated .ocr_protobuf.OcrResponse.OcrResult.ResultPos.PosXY pos = 1;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_pos_size()); i < n; i++) {
-    const auto& repfield = this->_internal_pos(i);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+    if (cached_has_bits & 0x00000002u) {
+      GOOGLE_DCHECK(_impl_.topright_ != nullptr);
+      _impl_.topright_->Clear();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      GOOGLE_DCHECK(_impl_.bottomright_ != nullptr);
+      _impl_.bottomright_->Clear();
+    }
+    if (cached_has_bits & 0x00000008u) {
+      GOOGLE_DCHECK(_impl_.bottomleft_ != nullptr);
+      _impl_.bottomleft_->Clear();
+    }
   }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ocr_protobuf.OcrResponse.OcrResult.ResultPos)
-  return target;
-}
-
-size_t OcrResponse_OcrResult_ResultPos::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ocr_protobuf.OcrResponse.OcrResult.ResultPos)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated .ocr_protobuf.OcrResponse.OcrResult.ResultPos.PosXY pos = 1;
-  total_size += 1UL * this->_internal_pos_size();
-  for (const auto& msg : this->_impl_.pos_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::_pbi::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void OcrResponse_OcrResult_ResultPos::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::_pbi::DownCast<const OcrResponse_OcrResult_ResultPos*>(
-      &from));
-}
-
-void OcrResponse_OcrResult_ResultPos::MergeFrom(const OcrResponse_OcrResult_ResultPos& from) {
-  OcrResponse_OcrResult_ResultPos* const _this = this;
-  // @@protoc_insertion_point(class_specific_merge_from_start:ocr_protobuf.OcrResponse.OcrResult.ResultPos)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _this->_impl_.pos_.MergeFrom(from._impl_.pos_);
-  _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-}
-
-void OcrResponse_OcrResult_ResultPos::CopyFrom(const OcrResponse_OcrResult_ResultPos& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ocr_protobuf.OcrResponse.OcrResult.ResultPos)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool OcrResponse_OcrResult_ResultPos::IsInitialized() const {
-  return true;
-}
-
-void OcrResponse_OcrResult_ResultPos::InternalSwap(OcrResponse_OcrResult_ResultPos* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.pos_.InternalSwap(&other->_impl_.pos_);
-}
-
-std::string OcrResponse_OcrResult_ResultPos::GetTypeName() const {
-  return "ocr_protobuf.OcrResponse.OcrResult.ResultPos";
-}
-
-
-// ===================================================================
-
-class OcrResponse_OcrResult_SingleResult_OneResult::_Internal {
- public:
-  static const ::ocr_protobuf::OcrResponse_OcrResult_ResultPos& one_pos(const OcrResponse_OcrResult_SingleResult_OneResult* msg);
-};
-
-const ::ocr_protobuf::OcrResponse_OcrResult_ResultPos&
-OcrResponse_OcrResult_SingleResult_OneResult::_Internal::one_pos(const OcrResponse_OcrResult_SingleResult_OneResult* msg) {
-  return *msg->_impl_.one_pos_;
-}
-OcrResponse_OcrResult_SingleResult_OneResult::OcrResponse_OcrResult_SingleResult_OneResult(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:ocr_protobuf.OcrResponse.OcrResult.SingleResult.OneResult)
-}
-OcrResponse_OcrResult_SingleResult_OneResult::OcrResponse_OcrResult_SingleResult_OneResult(const OcrResponse_OcrResult_SingleResult_OneResult& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  OcrResponse_OcrResult_SingleResult_OneResult* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.one_str_utf8_){}
-    , decltype(_impl_.one_pos_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  _impl_.one_str_utf8_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.one_str_utf8_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_one_str_utf8().empty()) {
-    _this->_impl_.one_str_utf8_.Set(from._internal_one_str_utf8(), 
-      _this->GetArenaForAllocation());
-  }
-  if (from._internal_has_one_pos()) {
-    _this->_impl_.one_pos_ = new ::ocr_protobuf::OcrResponse_OcrResult_ResultPos(*from._impl_.one_pos_);
-  }
-  // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrResponse.OcrResult.SingleResult.OneResult)
-}
-
-inline void OcrResponse_OcrResult_SingleResult_OneResult::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.one_str_utf8_){}
-    , decltype(_impl_.one_pos_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-  _impl_.one_str_utf8_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.one_str_utf8_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-}
-
-OcrResponse_OcrResult_SingleResult_OneResult::~OcrResponse_OcrResult_SingleResult_OneResult() {
-  // @@protoc_insertion_point(destructor:ocr_protobuf.OcrResponse.OcrResult.SingleResult.OneResult)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void OcrResponse_OcrResult_SingleResult_OneResult::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.one_str_utf8_.Destroy();
-  if (this != internal_default_instance()) delete _impl_.one_pos_;
-}
-
-void OcrResponse_OcrResult_SingleResult_OneResult::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void OcrResponse_OcrResult_SingleResult_OneResult::Clear() {
-// @@protoc_insertion_point(message_clear_start:ocr_protobuf.OcrResponse.OcrResult.SingleResult.OneResult)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.one_str_utf8_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && _impl_.one_pos_ != nullptr) {
-    delete _impl_.one_pos_;
-  }
-  _impl_.one_pos_ = nullptr;
+  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* OcrResponse_OcrResult_SingleResult_OneResult::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* OcrRespond_OcrBox::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .ocr_protobuf.OcrResponse.OcrResult.ResultPos one_pos = 1;
+      // optional .ocr_protobuf.OcrRespond.OcrBoxPoint topleft = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_one_pos(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_topleft(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes one_str_utf8 = 2;
+      // optional .ocr_protobuf.OcrRespond.OcrBoxPoint topright = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_one_str_utf8();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ctx->ParseMessage(_internal_mutable_topright(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .ocr_protobuf.OcrRespond.OcrBoxPoint bottomright = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_bottomright(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .ocr_protobuf.OcrRespond.OcrBoxPoint bottomleft = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_bottomleft(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -694,6 +586,7 @@ const char* OcrResponse_OcrResult_SingleResult_OneResult::_InternalParse(const c
     CHK_(ptr != nullptr);
   }  // while
 message_done:
+  _impl_._has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -701,55 +594,87 @@ failure:
 #undef CHK_
 }
 
-uint8_t* OcrResponse_OcrResult_SingleResult_OneResult::_InternalSerialize(
+uint8_t* OcrRespond_OcrBox::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ocr_protobuf.OcrResponse.OcrResult.SingleResult.OneResult)
+  // @@protoc_insertion_point(serialize_to_array_start:ocr_protobuf.OcrRespond.OcrBox)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ocr_protobuf.OcrResponse.OcrResult.ResultPos one_pos = 1;
-  if (this->_internal_has_one_pos()) {
+  // optional .ocr_protobuf.OcrRespond.OcrBoxPoint topleft = 1;
+  if (_internal_has_topleft()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::one_pos(this),
-        _Internal::one_pos(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(1, _Internal::topleft(this),
+        _Internal::topleft(this).GetCachedSize(), target, stream);
   }
 
-  // bytes one_str_utf8 = 2;
-  if (!this->_internal_one_str_utf8().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        2, this->_internal_one_str_utf8(), target);
+  // optional .ocr_protobuf.OcrRespond.OcrBoxPoint topright = 2;
+  if (_internal_has_topright()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::topright(this),
+        _Internal::topright(this).GetCachedSize(), target, stream);
+  }
+
+  // optional .ocr_protobuf.OcrRespond.OcrBoxPoint bottomright = 3;
+  if (_internal_has_bottomright()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::bottomright(this),
+        _Internal::bottomright(this).GetCachedSize(), target, stream);
+  }
+
+  // optional .ocr_protobuf.OcrRespond.OcrBoxPoint bottomleft = 4;
+  if (_internal_has_bottomleft()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, _Internal::bottomleft(this),
+        _Internal::bottomleft(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
         static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ocr_protobuf.OcrResponse.OcrResult.SingleResult.OneResult)
+  // @@protoc_insertion_point(serialize_to_array_end:ocr_protobuf.OcrRespond.OcrBox)
   return target;
 }
 
-size_t OcrResponse_OcrResult_SingleResult_OneResult::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ocr_protobuf.OcrResponse.OcrResult.SingleResult.OneResult)
+size_t OcrRespond_OcrBox::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ocr_protobuf.OcrRespond.OcrBox)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes one_str_utf8 = 2;
-  if (!this->_internal_one_str_utf8().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_one_str_utf8());
-  }
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional .ocr_protobuf.OcrRespond.OcrBoxPoint topleft = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.topleft_);
+    }
 
-  // .ocr_protobuf.OcrResponse.OcrResult.ResultPos one_pos = 1;
-  if (this->_internal_has_one_pos()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.one_pos_);
-  }
+    // optional .ocr_protobuf.OcrRespond.OcrBoxPoint topright = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.topright_);
+    }
 
+    // optional .ocr_protobuf.OcrRespond.OcrBoxPoint bottomright = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.bottomright_);
+    }
+
+    // optional .ocr_protobuf.OcrRespond.OcrBoxPoint bottomleft = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.bottomleft_);
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
@@ -758,141 +683,433 @@ size_t OcrResponse_OcrResult_SingleResult_OneResult::ByteSizeLong() const {
   return total_size;
 }
 
-void OcrResponse_OcrResult_SingleResult_OneResult::CheckTypeAndMergeFrom(
+void OcrRespond_OcrBox::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::_pbi::DownCast<const OcrResponse_OcrResult_SingleResult_OneResult*>(
+  MergeFrom(*::_pbi::DownCast<const OcrRespond_OcrBox*>(
       &from));
 }
 
-void OcrResponse_OcrResult_SingleResult_OneResult::MergeFrom(const OcrResponse_OcrResult_SingleResult_OneResult& from) {
-  OcrResponse_OcrResult_SingleResult_OneResult* const _this = this;
-  // @@protoc_insertion_point(class_specific_merge_from_start:ocr_protobuf.OcrResponse.OcrResult.SingleResult.OneResult)
+void OcrRespond_OcrBox::MergeFrom(const OcrRespond_OcrBox& from) {
+  OcrRespond_OcrBox* const _this = this;
+  // @@protoc_insertion_point(class_specific_merge_from_start:ocr_protobuf.OcrRespond.OcrBox)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_one_str_utf8().empty()) {
-    _this->_internal_set_one_str_utf8(from._internal_one_str_utf8());
-  }
-  if (from._internal_has_one_pos()) {
-    _this->_internal_mutable_one_pos()->::ocr_protobuf::OcrResponse_OcrResult_ResultPos::MergeFrom(
-        from._internal_one_pos());
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_mutable_topleft()->::ocr_protobuf::OcrRespond_OcrBoxPoint::MergeFrom(
+          from._internal_topleft());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_internal_mutable_topright()->::ocr_protobuf::OcrRespond_OcrBoxPoint::MergeFrom(
+          from._internal_topright());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_internal_mutable_bottomright()->::ocr_protobuf::OcrRespond_OcrBoxPoint::MergeFrom(
+          from._internal_bottomright());
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_internal_mutable_bottomleft()->::ocr_protobuf::OcrRespond_OcrBoxPoint::MergeFrom(
+          from._internal_bottomleft());
+    }
   }
   _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
-void OcrResponse_OcrResult_SingleResult_OneResult::CopyFrom(const OcrResponse_OcrResult_SingleResult_OneResult& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ocr_protobuf.OcrResponse.OcrResult.SingleResult.OneResult)
+void OcrRespond_OcrBox::CopyFrom(const OcrRespond_OcrBox& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ocr_protobuf.OcrRespond.OcrBox)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool OcrResponse_OcrResult_SingleResult_OneResult::IsInitialized() const {
+bool OcrRespond_OcrBox::IsInitialized() const {
   return true;
 }
 
-void OcrResponse_OcrResult_SingleResult_OneResult::InternalSwap(OcrResponse_OcrResult_SingleResult_OneResult* other) {
+void OcrRespond_OcrBox::InternalSwap(OcrRespond_OcrBox* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(OcrRespond_OcrBox, _impl_.bottomleft_)
+      + sizeof(OcrRespond_OcrBox::_impl_.bottomleft_)
+      - PROTOBUF_FIELD_OFFSET(OcrRespond_OcrBox, _impl_.topleft_)>(
+          reinterpret_cast<char*>(&_impl_.topleft_),
+          reinterpret_cast<char*>(&other->_impl_.topleft_));
+}
+
+std::string OcrRespond_OcrBox::GetTypeName() const {
+  return "ocr_protobuf.OcrRespond.OcrBox";
+}
+
+
+// ===================================================================
+
+class OcrRespond_OCRResultChar::_Internal {
+ public:
+  using HasBits = decltype(std::declval<OcrRespond_OCRResultChar>()._impl_._has_bits_);
+  static const ::ocr_protobuf::OcrRespond_OcrBox& char_box(const OcrRespond_OCRResultChar* msg);
+  static void set_has_char_box(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_chars(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::ocr_protobuf::OcrRespond_OcrBox&
+OcrRespond_OCRResultChar::_Internal::char_box(const OcrRespond_OCRResultChar* msg) {
+  return *msg->_impl_.char_box_;
+}
+OcrRespond_OCRResultChar::OcrRespond_OCRResultChar(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:ocr_protobuf.OcrRespond.OCRResultChar)
+}
+OcrRespond_OCRResultChar::OcrRespond_OCRResultChar(const OcrRespond_OCRResultChar& from)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
+  OcrRespond_OCRResultChar* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.chars_){}
+    , decltype(_impl_.char_box_){nullptr}};
+
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _impl_.chars_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.chars_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_chars()) {
+    _this->_impl_.chars_.Set(from._internal_chars(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_char_box()) {
+    _this->_impl_.char_box_ = new ::ocr_protobuf::OcrRespond_OcrBox(*from._impl_.char_box_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrRespond.OCRResultChar)
+}
+
+inline void OcrRespond_OCRResultChar::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.chars_){}
+    , decltype(_impl_.char_box_){nullptr}
+  };
+  _impl_.chars_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.chars_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+OcrRespond_OCRResultChar::~OcrRespond_OCRResultChar() {
+  // @@protoc_insertion_point(destructor:ocr_protobuf.OcrRespond.OCRResultChar)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void OcrRespond_OCRResultChar::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.chars_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.char_box_;
+}
+
+void OcrRespond_OCRResultChar::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void OcrRespond_OCRResultChar::Clear() {
+// @@protoc_insertion_point(message_clear_start:ocr_protobuf.OcrRespond.OCRResultChar)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.chars_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      GOOGLE_DCHECK(_impl_.char_box_ != nullptr);
+      _impl_.char_box_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<std::string>();
+}
+
+const char* OcrRespond_OCRResultChar::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .ocr_protobuf.OcrRespond.OcrBox char_box = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_char_box(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional string chars = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_chars();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, nullptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<std::string>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* OcrRespond_OCRResultChar::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ocr_protobuf.OcrRespond.OCRResultChar)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // optional .ocr_protobuf.OcrRespond.OcrBox char_box = 1;
+  if (_internal_has_char_box()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::char_box(this),
+        _Internal::char_box(this).GetCachedSize(), target, stream);
+  }
+
+  // optional string chars = 2;
+  if (_internal_has_chars()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_chars().data(), static_cast<int>(this->_internal_chars().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ocr_protobuf.OcrRespond.OCRResultChar.chars");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_chars(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
+        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ocr_protobuf.OcrRespond.OCRResultChar)
+  return target;
+}
+
+size_t OcrRespond_OCRResultChar::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ocr_protobuf.OcrRespond.OCRResultChar)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional string chars = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_chars());
+    }
+
+    // optional .ocr_protobuf.OcrRespond.OcrBox char_box = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.char_box_);
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
+  }
+  int cached_size = ::_pbi::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void OcrRespond_OCRResultChar::CheckTypeAndMergeFrom(
+    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
+  MergeFrom(*::_pbi::DownCast<const OcrRespond_OCRResultChar*>(
+      &from));
+}
+
+void OcrRespond_OCRResultChar::MergeFrom(const OcrRespond_OCRResultChar& from) {
+  OcrRespond_OCRResultChar* const _this = this;
+  // @@protoc_insertion_point(class_specific_merge_from_start:ocr_protobuf.OcrRespond.OCRResultChar)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_set_chars(from._internal_chars());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_internal_mutable_char_box()->::ocr_protobuf::OcrRespond_OcrBox::MergeFrom(
+          from._internal_char_box());
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+}
+
+void OcrRespond_OCRResultChar::CopyFrom(const OcrRespond_OCRResultChar& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ocr_protobuf.OcrRespond.OCRResultChar)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool OcrRespond_OCRResultChar::IsInitialized() const {
+  return true;
+}
+
+void OcrRespond_OCRResultChar::InternalSwap(OcrRespond_OCRResultChar* other) {
   using std::swap;
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.one_str_utf8_, lhs_arena,
-      &other->_impl_.one_str_utf8_, rhs_arena
+      &_impl_.chars_, lhs_arena,
+      &other->_impl_.chars_, rhs_arena
   );
-  swap(_impl_.one_pos_, other->_impl_.one_pos_);
+  swap(_impl_.char_box_, other->_impl_.char_box_);
 }
 
-std::string OcrResponse_OcrResult_SingleResult_OneResult::GetTypeName() const {
-  return "ocr_protobuf.OcrResponse.OcrResult.SingleResult.OneResult";
+std::string OcrRespond_OCRResultChar::GetTypeName() const {
+  return "ocr_protobuf.OcrRespond.OCRResultChar";
 }
 
 
 // ===================================================================
 
-class OcrResponse_OcrResult_SingleResult::_Internal {
+class OcrRespond_OCRResultLine::_Internal {
  public:
-  static const ::ocr_protobuf::OcrResponse_OcrResult_ResultPos& single_pos(const OcrResponse_OcrResult_SingleResult* msg);
-  static const ::ocr_protobuf::OcrResponse_OcrResult_ResultPos& unknown_pos(const OcrResponse_OcrResult_SingleResult* msg);
+  using HasBits = decltype(std::declval<OcrRespond_OCRResultLine>()._impl_._has_bits_);
+  static const ::ocr_protobuf::OcrRespond_OcrBox& line_box(const OcrRespond_OCRResultLine* msg);
+  static void set_has_unknown_0(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static const ::ocr_protobuf::OcrRespond_OcrBox& box10(const OcrRespond_OCRResultLine* msg);
+  static void set_has_box10(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
-const ::ocr_protobuf::OcrResponse_OcrResult_ResultPos&
-OcrResponse_OcrResult_SingleResult::_Internal::single_pos(const OcrResponse_OcrResult_SingleResult* msg) {
-  return *msg->_impl_.single_pos_;
+const ::ocr_protobuf::OcrRespond_OcrBox&
+OcrRespond_OCRResultLine::_Internal::line_box(const OcrRespond_OCRResultLine* msg) {
+  return *msg->_impl_.line_box_;
 }
-const ::ocr_protobuf::OcrResponse_OcrResult_ResultPos&
-OcrResponse_OcrResult_SingleResult::_Internal::unknown_pos(const OcrResponse_OcrResult_SingleResult* msg) {
-  return *msg->_impl_.unknown_pos_;
+const ::ocr_protobuf::OcrRespond_OcrBox&
+OcrRespond_OCRResultLine::_Internal::box10(const OcrRespond_OCRResultLine* msg) {
+  return *msg->_impl_.box10_;
 }
-OcrResponse_OcrResult_SingleResult::OcrResponse_OcrResult_SingleResult(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+OcrRespond_OCRResultLine::OcrRespond_OCRResultLine(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:ocr_protobuf.OcrResponse.OcrResult.SingleResult)
+  // @@protoc_insertion_point(arena_constructor:ocr_protobuf.OcrRespond.OCRResultLine)
 }
-OcrResponse_OcrResult_SingleResult::OcrResponse_OcrResult_SingleResult(const OcrResponse_OcrResult_SingleResult& from)
+OcrRespond_OCRResultLine::OcrRespond_OCRResultLine(const OcrRespond_OCRResultLine& from)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  OcrResponse_OcrResult_SingleResult* const _this = this; (void)_this;
+  OcrRespond_OCRResultLine* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.one_result_){from._impl_.one_result_}
-    , decltype(_impl_.single_str_utf8_){}
-    , decltype(_impl_.single_pos_){nullptr}
-    , decltype(_impl_.unknown_pos_){nullptr}
-    , decltype(_impl_.single_rate_){}
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.blocks_){from._impl_.blocks_}
+    , decltype(_impl_.text_){}
+    , decltype(_impl_.line_box_){nullptr}
+    , decltype(_impl_.box10_){nullptr}
+    , decltype(_impl_.rate_){}
     , decltype(_impl_.left_){}
     , decltype(_impl_.top_){}
     , decltype(_impl_.right_){}
     , decltype(_impl_.bottom_){}
-    , decltype(_impl_.unknown_0_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
+    , decltype(_impl_.unknown_0_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  _impl_.single_str_utf8_.InitDefault();
+  _impl_.text_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.single_str_utf8_.Set("", GetArenaForAllocation());
+    _impl_.text_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_single_str_utf8().empty()) {
-    _this->_impl_.single_str_utf8_.Set(from._internal_single_str_utf8(), 
+  if (!from._internal_text().empty()) {
+    _this->_impl_.text_.Set(from._internal_text(), 
       _this->GetArenaForAllocation());
   }
-  if (from._internal_has_single_pos()) {
-    _this->_impl_.single_pos_ = new ::ocr_protobuf::OcrResponse_OcrResult_ResultPos(*from._impl_.single_pos_);
+  if (from._internal_has_line_box()) {
+    _this->_impl_.line_box_ = new ::ocr_protobuf::OcrRespond_OcrBox(*from._impl_.line_box_);
   }
-  if (from._internal_has_unknown_pos()) {
-    _this->_impl_.unknown_pos_ = new ::ocr_protobuf::OcrResponse_OcrResult_ResultPos(*from._impl_.unknown_pos_);
+  if (from._internal_has_box10()) {
+    _this->_impl_.box10_ = new ::ocr_protobuf::OcrRespond_OcrBox(*from._impl_.box10_);
   }
-  ::memcpy(&_impl_.single_rate_, &from._impl_.single_rate_,
+  ::memcpy(&_impl_.rate_, &from._impl_.rate_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.unknown_0_) -
-    reinterpret_cast<char*>(&_impl_.single_rate_)) + sizeof(_impl_.unknown_0_));
-  // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrResponse.OcrResult.SingleResult)
+    reinterpret_cast<char*>(&_impl_.rate_)) + sizeof(_impl_.unknown_0_));
+  // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrRespond.OCRResultLine)
 }
 
-inline void OcrResponse_OcrResult_SingleResult::SharedCtor(
+inline void OcrRespond_OCRResultLine::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.one_result_){arena}
-    , decltype(_impl_.single_str_utf8_){}
-    , decltype(_impl_.single_pos_){nullptr}
-    , decltype(_impl_.unknown_pos_){nullptr}
-    , decltype(_impl_.single_rate_){0}
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.blocks_){arena}
+    , decltype(_impl_.text_){}
+    , decltype(_impl_.line_box_){nullptr}
+    , decltype(_impl_.box10_){nullptr}
+    , decltype(_impl_.rate_){0}
     , decltype(_impl_.left_){0}
     , decltype(_impl_.top_){0}
     , decltype(_impl_.right_){0}
     , decltype(_impl_.bottom_){0}
-    , decltype(_impl_.unknown_0_){0}
-    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.unknown_0_){false}
   };
-  _impl_.single_str_utf8_.InitDefault();
+  _impl_.text_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.single_str_utf8_.Set("", GetArenaForAllocation());
+    _impl_.text_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
-OcrResponse_OcrResult_SingleResult::~OcrResponse_OcrResult_SingleResult() {
-  // @@protoc_insertion_point(destructor:ocr_protobuf.OcrResponse.OcrResult.SingleResult)
+OcrRespond_OCRResultLine::~OcrRespond_OCRResultLine() {
+  // @@protoc_insertion_point(destructor:ocr_protobuf.OcrRespond.OCRResultLine)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
   (void)arena;
     return;
@@ -900,78 +1117,83 @@ OcrResponse_OcrResult_SingleResult::~OcrResponse_OcrResult_SingleResult() {
   SharedDtor();
 }
 
-inline void OcrResponse_OcrResult_SingleResult::SharedDtor() {
+inline void OcrRespond_OCRResultLine::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.one_result_.~RepeatedPtrField();
-  _impl_.single_str_utf8_.Destroy();
-  if (this != internal_default_instance()) delete _impl_.single_pos_;
-  if (this != internal_default_instance()) delete _impl_.unknown_pos_;
+  _impl_.blocks_.~RepeatedPtrField();
+  _impl_.text_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.line_box_;
+  if (this != internal_default_instance()) delete _impl_.box10_;
 }
 
-void OcrResponse_OcrResult_SingleResult::SetCachedSize(int size) const {
+void OcrRespond_OCRResultLine::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void OcrResponse_OcrResult_SingleResult::Clear() {
-// @@protoc_insertion_point(message_clear_start:ocr_protobuf.OcrResponse.OcrResult.SingleResult)
+void OcrRespond_OCRResultLine::Clear() {
+// @@protoc_insertion_point(message_clear_start:ocr_protobuf.OcrRespond.OCRResultLine)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.one_result_.Clear();
-  _impl_.single_str_utf8_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && _impl_.single_pos_ != nullptr) {
-    delete _impl_.single_pos_;
+  _impl_.blocks_.Clear();
+  _impl_.text_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.line_box_ != nullptr) {
+    delete _impl_.line_box_;
   }
-  _impl_.single_pos_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.unknown_pos_ != nullptr) {
-    delete _impl_.unknown_pos_;
+  _impl_.line_box_ = nullptr;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(_impl_.box10_ != nullptr);
+    _impl_.box10_->Clear();
   }
-  _impl_.unknown_pos_ = nullptr;
-  ::memset(&_impl_.single_rate_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.unknown_0_) -
-      reinterpret_cast<char*>(&_impl_.single_rate_)) + sizeof(_impl_.unknown_0_));
+  ::memset(&_impl_.rate_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.bottom_) -
+      reinterpret_cast<char*>(&_impl_.rate_)) + sizeof(_impl_.bottom_));
+  _impl_.unknown_0_ = false;
+  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* OcrResponse_OcrResult_SingleResult::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* OcrRespond_OCRResultLine::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .ocr_protobuf.OcrResponse.OcrResult.ResultPos single_pos = 1;
+      // .ocr_protobuf.OcrRespond.OcrBox line_box = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_single_pos(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_line_box(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes single_str_utf8 = 2;
+      // string text = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_single_str_utf8();
+          auto str = _internal_mutable_text();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, nullptr));
         } else
           goto handle_unusual;
         continue;
-      // float single_rate = 3;
+      // float rate = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 29)) {
-          _impl_.single_rate_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          _impl_.rate_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
         continue;
-      // repeated .ocr_protobuf.OcrResponse.OcrResult.SingleResult.OneResult one_result = 4;
+      // repeated .ocr_protobuf.OcrRespond.OCRResultChar blocks = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_one_result(), ptr);
+            ptr = ctx->ParseMessage(_internal_add_blocks(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
@@ -1010,18 +1232,19 @@ const char* OcrResponse_OcrResult_SingleResult::_InternalParse(const char* ptr, 
         } else
           goto handle_unusual;
         continue;
-      // int32 unknown_0 = 9;
+      // optional bool unknown_0 = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
-          _impl_.unknown_0_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _Internal::set_has_unknown_0(&has_bits);
+          _impl_.unknown_0_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // .ocr_protobuf.OcrResponse.OcrResult.ResultPos unknown_pos = 10;
+      // optional .ocr_protobuf.OcrRespond.OcrBox box10 = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
-          ptr = ctx->ParseMessage(_internal_mutable_unknown_pos(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_box10(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1042,6 +1265,7 @@ const char* OcrResponse_OcrResult_SingleResult::_InternalParse(const char* ptr, 
     CHK_(ptr != nullptr);
   }  // while
 message_done:
+  _impl_._has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -1049,39 +1273,43 @@ failure:
 #undef CHK_
 }
 
-uint8_t* OcrResponse_OcrResult_SingleResult::_InternalSerialize(
+uint8_t* OcrRespond_OCRResultLine::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ocr_protobuf.OcrResponse.OcrResult.SingleResult)
+  // @@protoc_insertion_point(serialize_to_array_start:ocr_protobuf.OcrRespond.OCRResultLine)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ocr_protobuf.OcrResponse.OcrResult.ResultPos single_pos = 1;
-  if (this->_internal_has_single_pos()) {
+  // .ocr_protobuf.OcrRespond.OcrBox line_box = 1;
+  if (this->_internal_has_line_box()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::single_pos(this),
-        _Internal::single_pos(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(1, _Internal::line_box(this),
+        _Internal::line_box(this).GetCachedSize(), target, stream);
   }
 
-  // bytes single_str_utf8 = 2;
-  if (!this->_internal_single_str_utf8().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        2, this->_internal_single_str_utf8(), target);
+  // string text = 2;
+  if (!this->_internal_text().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_text().data(), static_cast<int>(this->_internal_text().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ocr_protobuf.OcrRespond.OCRResultLine.text");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_text(), target);
   }
 
-  // float single_rate = 3;
+  // float rate = 3;
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_single_rate = this->_internal_single_rate();
-  uint32_t raw_single_rate;
-  memcpy(&raw_single_rate, &tmp_single_rate, sizeof(tmp_single_rate));
-  if (raw_single_rate != 0) {
+  float tmp_rate = this->_internal_rate();
+  uint32_t raw_rate;
+  memcpy(&raw_rate, &tmp_rate, sizeof(tmp_rate));
+  if (raw_rate != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_single_rate(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_rate(), target);
   }
 
-  // repeated .ocr_protobuf.OcrResponse.OcrResult.SingleResult.OneResult one_result = 4;
+  // repeated .ocr_protobuf.OcrRespond.OCRResultChar blocks = 4;
   for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_one_result_size()); i < n; i++) {
-    const auto& repfield = this->_internal_one_result(i);
+      n = static_cast<unsigned>(this->_internal_blocks_size()); i < n; i++) {
+    const auto& repfield = this->_internal_blocks(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
         InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
   }
@@ -1126,69 +1354,70 @@ uint8_t* OcrResponse_OcrResult_SingleResult::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteFloatToArray(8, this->_internal_bottom(), target);
   }
 
-  // int32 unknown_0 = 9;
-  if (this->_internal_unknown_0() != 0) {
+  // optional bool unknown_0 = 9;
+  if (_internal_has_unknown_0()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(9, this->_internal_unknown_0(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(9, this->_internal_unknown_0(), target);
   }
 
-  // .ocr_protobuf.OcrResponse.OcrResult.ResultPos unknown_pos = 10;
-  if (this->_internal_has_unknown_pos()) {
+  // optional .ocr_protobuf.OcrRespond.OcrBox box10 = 10;
+  if (_internal_has_box10()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(10, _Internal::unknown_pos(this),
-        _Internal::unknown_pos(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(10, _Internal::box10(this),
+        _Internal::box10(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
         static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ocr_protobuf.OcrResponse.OcrResult.SingleResult)
+  // @@protoc_insertion_point(serialize_to_array_end:ocr_protobuf.OcrRespond.OCRResultLine)
   return target;
 }
 
-size_t OcrResponse_OcrResult_SingleResult::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ocr_protobuf.OcrResponse.OcrResult.SingleResult)
+size_t OcrRespond_OCRResultLine::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ocr_protobuf.OcrRespond.OCRResultLine)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .ocr_protobuf.OcrResponse.OcrResult.SingleResult.OneResult one_result = 4;
-  total_size += 1UL * this->_internal_one_result_size();
-  for (const auto& msg : this->_impl_.one_result_) {
+  // repeated .ocr_protobuf.OcrRespond.OCRResultChar blocks = 4;
+  total_size += 1UL * this->_internal_blocks_size();
+  for (const auto& msg : this->_impl_.blocks_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // bytes single_str_utf8 = 2;
-  if (!this->_internal_single_str_utf8().empty()) {
+  // string text = 2;
+  if (!this->_internal_text().empty()) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_single_str_utf8());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_text());
   }
 
-  // .ocr_protobuf.OcrResponse.OcrResult.ResultPos single_pos = 1;
-  if (this->_internal_has_single_pos()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.single_pos_);
-  }
-
-  // .ocr_protobuf.OcrResponse.OcrResult.ResultPos unknown_pos = 10;
-  if (this->_internal_has_unknown_pos()) {
+  // .ocr_protobuf.OcrRespond.OcrBox line_box = 1;
+  if (this->_internal_has_line_box()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.unknown_pos_);
+        *_impl_.line_box_);
   }
 
-  // float single_rate = 3;
+  // optional .ocr_protobuf.OcrRespond.OcrBox box10 = 10;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.box10_);
+  }
+
+  // float rate = 3;
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_single_rate = this->_internal_single_rate();
-  uint32_t raw_single_rate;
-  memcpy(&raw_single_rate, &tmp_single_rate, sizeof(tmp_single_rate));
-  if (raw_single_rate != 0) {
+  float tmp_rate = this->_internal_rate();
+  uint32_t raw_rate;
+  memcpy(&raw_rate, &tmp_rate, sizeof(tmp_rate));
+  if (raw_rate != 0) {
     total_size += 1 + 4;
   }
 
@@ -1228,9 +1457,9 @@ size_t OcrResponse_OcrResult_SingleResult::ByteSizeLong() const {
     total_size += 1 + 4;
   }
 
-  // int32 unknown_0 = 9;
-  if (this->_internal_unknown_0() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_unknown_0());
+  // optional bool unknown_0 = 9;
+  if (cached_has_bits & 0x00000002u) {
+    total_size += 1 + 1;
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1241,37 +1470,37 @@ size_t OcrResponse_OcrResult_SingleResult::ByteSizeLong() const {
   return total_size;
 }
 
-void OcrResponse_OcrResult_SingleResult::CheckTypeAndMergeFrom(
+void OcrRespond_OCRResultLine::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::_pbi::DownCast<const OcrResponse_OcrResult_SingleResult*>(
+  MergeFrom(*::_pbi::DownCast<const OcrRespond_OCRResultLine*>(
       &from));
 }
 
-void OcrResponse_OcrResult_SingleResult::MergeFrom(const OcrResponse_OcrResult_SingleResult& from) {
-  OcrResponse_OcrResult_SingleResult* const _this = this;
-  // @@protoc_insertion_point(class_specific_merge_from_start:ocr_protobuf.OcrResponse.OcrResult.SingleResult)
+void OcrRespond_OCRResultLine::MergeFrom(const OcrRespond_OCRResultLine& from) {
+  OcrRespond_OCRResultLine* const _this = this;
+  // @@protoc_insertion_point(class_specific_merge_from_start:ocr_protobuf.OcrRespond.OCRResultLine)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.one_result_.MergeFrom(from._impl_.one_result_);
-  if (!from._internal_single_str_utf8().empty()) {
-    _this->_internal_set_single_str_utf8(from._internal_single_str_utf8());
+  _this->_impl_.blocks_.MergeFrom(from._impl_.blocks_);
+  if (!from._internal_text().empty()) {
+    _this->_internal_set_text(from._internal_text());
   }
-  if (from._internal_has_single_pos()) {
-    _this->_internal_mutable_single_pos()->::ocr_protobuf::OcrResponse_OcrResult_ResultPos::MergeFrom(
-        from._internal_single_pos());
+  if (from._internal_has_line_box()) {
+    _this->_internal_mutable_line_box()->::ocr_protobuf::OcrRespond_OcrBox::MergeFrom(
+        from._internal_line_box());
   }
-  if (from._internal_has_unknown_pos()) {
-    _this->_internal_mutable_unknown_pos()->::ocr_protobuf::OcrResponse_OcrResult_ResultPos::MergeFrom(
-        from._internal_unknown_pos());
+  if (from._internal_has_box10()) {
+    _this->_internal_mutable_box10()->::ocr_protobuf::OcrRespond_OcrBox::MergeFrom(
+        from._internal_box10());
   }
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_single_rate = from._internal_single_rate();
-  uint32_t raw_single_rate;
-  memcpy(&raw_single_rate, &tmp_single_rate, sizeof(tmp_single_rate));
-  if (raw_single_rate != 0) {
-    _this->_internal_set_single_rate(from._internal_single_rate());
+  float tmp_rate = from._internal_rate();
+  uint32_t raw_rate;
+  memcpy(&raw_rate, &tmp_rate, sizeof(tmp_rate));
+  if (raw_rate != 0) {
+    _this->_internal_set_rate(from._internal_rate());
   }
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
   float tmp_left = from._internal_left();
@@ -1301,88 +1530,115 @@ void OcrResponse_OcrResult_SingleResult::MergeFrom(const OcrResponse_OcrResult_S
   if (raw_bottom != 0) {
     _this->_internal_set_bottom(from._internal_bottom());
   }
-  if (from._internal_unknown_0() != 0) {
+  if (from._internal_has_unknown_0()) {
     _this->_internal_set_unknown_0(from._internal_unknown_0());
   }
   _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
-void OcrResponse_OcrResult_SingleResult::CopyFrom(const OcrResponse_OcrResult_SingleResult& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ocr_protobuf.OcrResponse.OcrResult.SingleResult)
+void OcrRespond_OCRResultLine::CopyFrom(const OcrRespond_OCRResultLine& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ocr_protobuf.OcrRespond.OCRResultLine)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool OcrResponse_OcrResult_SingleResult::IsInitialized() const {
+bool OcrRespond_OCRResultLine::IsInitialized() const {
   return true;
 }
 
-void OcrResponse_OcrResult_SingleResult::InternalSwap(OcrResponse_OcrResult_SingleResult* other) {
+void OcrRespond_OCRResultLine::InternalSwap(OcrRespond_OCRResultLine* other) {
   using std::swap;
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.one_result_.InternalSwap(&other->_impl_.one_result_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.blocks_.InternalSwap(&other->_impl_.blocks_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.single_str_utf8_, lhs_arena,
-      &other->_impl_.single_str_utf8_, rhs_arena
+      &_impl_.text_, lhs_arena,
+      &other->_impl_.text_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(OcrResponse_OcrResult_SingleResult, _impl_.unknown_0_)
-      + sizeof(OcrResponse_OcrResult_SingleResult::_impl_.unknown_0_)
-      - PROTOBUF_FIELD_OFFSET(OcrResponse_OcrResult_SingleResult, _impl_.single_pos_)>(
-          reinterpret_cast<char*>(&_impl_.single_pos_),
-          reinterpret_cast<char*>(&other->_impl_.single_pos_));
+      PROTOBUF_FIELD_OFFSET(OcrRespond_OCRResultLine, _impl_.unknown_0_)
+      + sizeof(OcrRespond_OCRResultLine::_impl_.unknown_0_)
+      - PROTOBUF_FIELD_OFFSET(OcrRespond_OCRResultLine, _impl_.line_box_)>(
+          reinterpret_cast<char*>(&_impl_.line_box_),
+          reinterpret_cast<char*>(&other->_impl_.line_box_));
 }
 
-std::string OcrResponse_OcrResult_SingleResult::GetTypeName() const {
-  return "ocr_protobuf.OcrResponse.OcrResult.SingleResult";
+std::string OcrRespond_OCRResultLine::GetTypeName() const {
+  return "ocr_protobuf.OcrRespond.OCRResultLine";
 }
 
 
 // ===================================================================
 
-class OcrResponse_OcrResult::_Internal {
+class OcrRespond_OcrOutputBuffer::_Internal {
  public:
+  using HasBits = decltype(std::declval<OcrRespond_OcrOutputBuffer>()._impl_._has_bits_);
+  static void set_has_img_width(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_img_height(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_unk4(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
-OcrResponse_OcrResult::OcrResponse_OcrResult(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+OcrRespond_OcrOutputBuffer::OcrRespond_OcrOutputBuffer(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:ocr_protobuf.OcrResponse.OcrResult)
+  // @@protoc_insertion_point(arena_constructor:ocr_protobuf.OcrRespond.OcrOutputBuffer)
 }
-OcrResponse_OcrResult::OcrResponse_OcrResult(const OcrResponse_OcrResult& from)
+OcrRespond_OcrOutputBuffer::OcrRespond_OcrOutputBuffer(const OcrRespond_OcrOutputBuffer& from)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  OcrResponse_OcrResult* const _this = this; (void)_this;
+  OcrRespond_OcrOutputBuffer* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.single_result_){from._impl_.single_result_}
-    , decltype(_impl_.unknown_1_){}
-    , decltype(_impl_.unknown_2_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.lines_){from._impl_.lines_}
+    , decltype(_impl_.unk4_){}
+    , decltype(_impl_.img_width_){}
+    , decltype(_impl_.img_height_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  ::memcpy(&_impl_.unknown_1_, &from._impl_.unknown_1_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.unknown_2_) -
-    reinterpret_cast<char*>(&_impl_.unknown_1_)) + sizeof(_impl_.unknown_2_));
-  // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrResponse.OcrResult)
+  _impl_.unk4_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.unk4_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_unk4()) {
+    _this->_impl_.unk4_.Set(from._internal_unk4(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.img_width_, &from._impl_.img_width_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.img_height_) -
+    reinterpret_cast<char*>(&_impl_.img_width_)) + sizeof(_impl_.img_height_));
+  // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrRespond.OcrOutputBuffer)
 }
 
-inline void OcrResponse_OcrResult::SharedCtor(
+inline void OcrRespond_OcrOutputBuffer::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.single_result_){arena}
-    , decltype(_impl_.unknown_1_){0}
-    , decltype(_impl_.unknown_2_){0}
+      decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.lines_){arena}
+    , decltype(_impl_.unk4_){}
+    , decltype(_impl_.img_width_){0u}
+    , decltype(_impl_.img_height_){0u}
   };
+  _impl_.unk4_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.unk4_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
-OcrResponse_OcrResult::~OcrResponse_OcrResult() {
-  // @@protoc_insertion_point(destructor:ocr_protobuf.OcrResponse.OcrResult)
+OcrRespond_OcrOutputBuffer::~OcrRespond_OcrOutputBuffer() {
+  // @@protoc_insertion_point(destructor:ocr_protobuf.OcrRespond.OcrOutputBuffer)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
   (void)arena;
     return;
@@ -1390,60 +1646,81 @@ OcrResponse_OcrResult::~OcrResponse_OcrResult() {
   SharedDtor();
 }
 
-inline void OcrResponse_OcrResult::SharedDtor() {
+inline void OcrRespond_OcrOutputBuffer::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.single_result_.~RepeatedPtrField();
+  _impl_.lines_.~RepeatedPtrField();
+  _impl_.unk4_.Destroy();
 }
 
-void OcrResponse_OcrResult::SetCachedSize(int size) const {
+void OcrRespond_OcrOutputBuffer::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void OcrResponse_OcrResult::Clear() {
-// @@protoc_insertion_point(message_clear_start:ocr_protobuf.OcrResponse.OcrResult)
+void OcrRespond_OcrOutputBuffer::Clear() {
+// @@protoc_insertion_point(message_clear_start:ocr_protobuf.OcrRespond.OcrOutputBuffer)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.single_result_.Clear();
-  ::memset(&_impl_.unknown_1_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.unknown_2_) -
-      reinterpret_cast<char*>(&_impl_.unknown_1_)) + sizeof(_impl_.unknown_2_));
+  _impl_.lines_.Clear();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    _impl_.unk4_.ClearNonDefaultToEmpty();
+  }
+  if (cached_has_bits & 0x00000006u) {
+    ::memset(&_impl_.img_width_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.img_height_) -
+        reinterpret_cast<char*>(&_impl_.img_width_)) + sizeof(_impl_.img_height_));
+  }
+  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* OcrResponse_OcrResult::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* OcrRespond_OcrOutputBuffer::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .ocr_protobuf.OcrResponse.OcrResult.SingleResult single_result = 1;
+      // repeated .ocr_protobuf.OcrRespond.OCRResultLine lines = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_single_result(), ptr);
+            ptr = ctx->ParseMessage(_internal_add_lines(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
         } else
           goto handle_unusual;
         continue;
-      // int32 unknown_1 = 2;
+      // optional uint32 img_width = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _impl_.unknown_1_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _Internal::set_has_img_width(&has_bits);
+          _impl_.img_width_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int32 unknown_2 = 3;
+      // optional uint32 img_height = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _impl_.unknown_2_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _Internal::set_has_img_height(&has_bits);
+          _impl_.img_height_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional string unk4 = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_unk4();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, nullptr));
         } else
           goto handle_unusual;
         continue;
@@ -1463,6 +1740,7 @@ const char* OcrResponse_OcrResult::_InternalParse(const char* ptr, ::_pbi::Parse
     CHK_(ptr != nullptr);
   }  // while
 message_done:
+  _impl_._has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -1470,65 +1748,85 @@ failure:
 #undef CHK_
 }
 
-uint8_t* OcrResponse_OcrResult::_InternalSerialize(
+uint8_t* OcrRespond_OcrOutputBuffer::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ocr_protobuf.OcrResponse.OcrResult)
+  // @@protoc_insertion_point(serialize_to_array_start:ocr_protobuf.OcrRespond.OcrOutputBuffer)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .ocr_protobuf.OcrResponse.OcrResult.SingleResult single_result = 1;
+  // repeated .ocr_protobuf.OcrRespond.OCRResultLine lines = 1;
   for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_single_result_size()); i < n; i++) {
-    const auto& repfield = this->_internal_single_result(i);
+      n = static_cast<unsigned>(this->_internal_lines_size()); i < n; i++) {
+    const auto& repfield = this->_internal_lines(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
         InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // int32 unknown_1 = 2;
-  if (this->_internal_unknown_1() != 0) {
+  // optional uint32 img_width = 2;
+  if (_internal_has_img_width()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_unknown_1(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_img_width(), target);
   }
 
-  // int32 unknown_2 = 3;
-  if (this->_internal_unknown_2() != 0) {
+  // optional uint32 img_height = 3;
+  if (_internal_has_img_height()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_unknown_2(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_img_height(), target);
+  }
+
+  // optional string unk4 = 4;
+  if (_internal_has_unk4()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_unk4().data(), static_cast<int>(this->_internal_unk4().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "ocr_protobuf.OcrRespond.OcrOutputBuffer.unk4");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_unk4(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
         static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ocr_protobuf.OcrResponse.OcrResult)
+  // @@protoc_insertion_point(serialize_to_array_end:ocr_protobuf.OcrRespond.OcrOutputBuffer)
   return target;
 }
 
-size_t OcrResponse_OcrResult::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ocr_protobuf.OcrResponse.OcrResult)
+size_t OcrRespond_OcrOutputBuffer::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ocr_protobuf.OcrRespond.OcrOutputBuffer)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .ocr_protobuf.OcrResponse.OcrResult.SingleResult single_result = 1;
-  total_size += 1UL * this->_internal_single_result_size();
-  for (const auto& msg : this->_impl_.single_result_) {
+  // repeated .ocr_protobuf.OcrRespond.OCRResultLine lines = 1;
+  total_size += 1UL * this->_internal_lines_size();
+  for (const auto& msg : this->_impl_.lines_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // int32 unknown_1 = 2;
-  if (this->_internal_unknown_1() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_unknown_1());
-  }
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional string unk4 = 4;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_unk4());
+    }
 
-  // int32 unknown_2 = 3;
-  if (this->_internal_unknown_2() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_unknown_2());
-  }
+    // optional uint32 img_width = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_img_width());
+    }
 
+    // optional uint32 img_height = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_img_height());
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
@@ -1537,109 +1835,138 @@ size_t OcrResponse_OcrResult::ByteSizeLong() const {
   return total_size;
 }
 
-void OcrResponse_OcrResult::CheckTypeAndMergeFrom(
+void OcrRespond_OcrOutputBuffer::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::_pbi::DownCast<const OcrResponse_OcrResult*>(
+  MergeFrom(*::_pbi::DownCast<const OcrRespond_OcrOutputBuffer*>(
       &from));
 }
 
-void OcrResponse_OcrResult::MergeFrom(const OcrResponse_OcrResult& from) {
-  OcrResponse_OcrResult* const _this = this;
-  // @@protoc_insertion_point(class_specific_merge_from_start:ocr_protobuf.OcrResponse.OcrResult)
+void OcrRespond_OcrOutputBuffer::MergeFrom(const OcrRespond_OcrOutputBuffer& from) {
+  OcrRespond_OcrOutputBuffer* const _this = this;
+  // @@protoc_insertion_point(class_specific_merge_from_start:ocr_protobuf.OcrRespond.OcrOutputBuffer)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.single_result_.MergeFrom(from._impl_.single_result_);
-  if (from._internal_unknown_1() != 0) {
-    _this->_internal_set_unknown_1(from._internal_unknown_1());
-  }
-  if (from._internal_unknown_2() != 0) {
-    _this->_internal_set_unknown_2(from._internal_unknown_2());
+  _this->_impl_.lines_.MergeFrom(from._impl_.lines_);
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_set_unk4(from._internal_unk4());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.img_width_ = from._impl_.img_width_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.img_height_ = from._impl_.img_height_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
-void OcrResponse_OcrResult::CopyFrom(const OcrResponse_OcrResult& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ocr_protobuf.OcrResponse.OcrResult)
+void OcrRespond_OcrOutputBuffer::CopyFrom(const OcrRespond_OcrOutputBuffer& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ocr_protobuf.OcrRespond.OcrOutputBuffer)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool OcrResponse_OcrResult::IsInitialized() const {
+bool OcrRespond_OcrOutputBuffer::IsInitialized() const {
   return true;
 }
 
-void OcrResponse_OcrResult::InternalSwap(OcrResponse_OcrResult* other) {
+void OcrRespond_OcrOutputBuffer::InternalSwap(OcrRespond_OcrOutputBuffer* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.single_result_.InternalSwap(&other->_impl_.single_result_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.lines_.InternalSwap(&other->_impl_.lines_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.unk4_, lhs_arena,
+      &other->_impl_.unk4_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(OcrResponse_OcrResult, _impl_.unknown_2_)
-      + sizeof(OcrResponse_OcrResult::_impl_.unknown_2_)
-      - PROTOBUF_FIELD_OFFSET(OcrResponse_OcrResult, _impl_.unknown_1_)>(
-          reinterpret_cast<char*>(&_impl_.unknown_1_),
-          reinterpret_cast<char*>(&other->_impl_.unknown_1_));
+      PROTOBUF_FIELD_OFFSET(OcrRespond_OcrOutputBuffer, _impl_.img_height_)
+      + sizeof(OcrRespond_OcrOutputBuffer::_impl_.img_height_)
+      - PROTOBUF_FIELD_OFFSET(OcrRespond_OcrOutputBuffer, _impl_.img_width_)>(
+          reinterpret_cast<char*>(&_impl_.img_width_),
+          reinterpret_cast<char*>(&other->_impl_.img_width_));
 }
 
-std::string OcrResponse_OcrResult::GetTypeName() const {
-  return "ocr_protobuf.OcrResponse.OcrResult";
+std::string OcrRespond_OcrOutputBuffer::GetTypeName() const {
+  return "ocr_protobuf.OcrRespond.OcrOutputBuffer";
 }
 
 
 // ===================================================================
 
-class OcrResponse::_Internal {
+class OcrRespond::_Internal {
  public:
-  static const ::ocr_protobuf::OcrResponse_OcrResult& ocr_result(const OcrResponse* msg);
+  using HasBits = decltype(std::declval<OcrRespond>()._impl_._has_bits_);
+  static void set_has_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_task_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_err_code(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static const ::ocr_protobuf::OcrRespond_OcrOutputBuffer& ocr_result(const OcrRespond* msg);
+  static void set_has_ocr_result(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
-const ::ocr_protobuf::OcrResponse_OcrResult&
-OcrResponse::_Internal::ocr_result(const OcrResponse* msg) {
+const ::ocr_protobuf::OcrRespond_OcrOutputBuffer&
+OcrRespond::_Internal::ocr_result(const OcrRespond* msg) {
   return *msg->_impl_.ocr_result_;
 }
-OcrResponse::OcrResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+OcrRespond::OcrRespond(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:ocr_protobuf.OcrResponse)
+  // @@protoc_insertion_point(arena_constructor:ocr_protobuf.OcrRespond)
 }
-OcrResponse::OcrResponse(const OcrResponse& from)
+OcrRespond::OcrRespond(const OcrRespond& from)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  OcrResponse* const _this = this; (void)_this;
+  OcrRespond* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.ocr_result_){nullptr}
-    , decltype(_impl_.type_){}
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.ocr_result_){nullptr}
     , decltype(_impl_.task_id_){}
-    , decltype(_impl_.err_code_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
+    , decltype(_impl_.type_){}
+    , decltype(_impl_.err_code_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
   if (from._internal_has_ocr_result()) {
-    _this->_impl_.ocr_result_ = new ::ocr_protobuf::OcrResponse_OcrResult(*from._impl_.ocr_result_);
+    _this->_impl_.ocr_result_ = new ::ocr_protobuf::OcrRespond_OcrOutputBuffer(*from._impl_.ocr_result_);
   }
-  ::memcpy(&_impl_.type_, &from._impl_.type_,
+  ::memcpy(&_impl_.task_id_, &from._impl_.task_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.err_code_) -
-    reinterpret_cast<char*>(&_impl_.type_)) + sizeof(_impl_.err_code_));
-  // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrResponse)
+    reinterpret_cast<char*>(&_impl_.task_id_)) + sizeof(_impl_.err_code_));
+  // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrRespond)
 }
 
-inline void OcrResponse::SharedCtor(
+inline void OcrRespond::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.ocr_result_){nullptr}
-    , decltype(_impl_.type_){0}
-    , decltype(_impl_.task_id_){0}
-    , decltype(_impl_.err_code_){0}
+      decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.ocr_result_){nullptr}
+    , decltype(_impl_.task_id_){uint64_t{0u}}
+    , decltype(_impl_.type_){0}
+    , decltype(_impl_.err_code_){0}
   };
 }
 
-OcrResponse::~OcrResponse() {
-  // @@protoc_insertion_point(destructor:ocr_protobuf.OcrResponse)
+OcrRespond::~OcrRespond() {
+  // @@protoc_insertion_point(destructor:ocr_protobuf.OcrRespond)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
   (void)arena;
     return;
@@ -1647,62 +1974,70 @@ OcrResponse::~OcrResponse() {
   SharedDtor();
 }
 
-inline void OcrResponse::SharedDtor() {
+inline void OcrRespond::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete _impl_.ocr_result_;
 }
 
-void OcrResponse::SetCachedSize(int size) const {
+void OcrRespond::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void OcrResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:ocr_protobuf.OcrResponse)
+void OcrRespond::Clear() {
+// @@protoc_insertion_point(message_clear_start:ocr_protobuf.OcrRespond)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && _impl_.ocr_result_ != nullptr) {
-    delete _impl_.ocr_result_;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(_impl_.ocr_result_ != nullptr);
+    _impl_.ocr_result_->Clear();
   }
-  _impl_.ocr_result_ = nullptr;
-  ::memset(&_impl_.type_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.err_code_) -
-      reinterpret_cast<char*>(&_impl_.type_)) + sizeof(_impl_.err_code_));
+  if (cached_has_bits & 0x0000000eu) {
+    ::memset(&_impl_.task_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.err_code_) -
+        reinterpret_cast<char*>(&_impl_.task_id_)) + sizeof(_impl_.err_code_));
+  }
+  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* OcrResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* OcrRespond::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 type = 1;
+      // optional int32 type = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_type(&has_bits);
           _impl_.type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int32 task_id = 2;
+      // optional uint64 task_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _impl_.task_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _Internal::set_has_task_id(&has_bits);
+          _impl_.task_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int32 err_code = 3;
+      // optional int32 err_code = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_err_code(&has_bits);
           _impl_.err_code_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // .ocr_protobuf.OcrResponse.OcrResult ocr_result = 4;
+      // optional .ocr_protobuf.OcrRespond.OcrOutputBuffer ocr_result = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_ocr_result(), ptr);
@@ -1726,6 +2061,7 @@ const char* OcrResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* c
     CHK_(ptr != nullptr);
   }  // while
 message_done:
+  _impl_._has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -1733,32 +2069,32 @@ failure:
 #undef CHK_
 }
 
-uint8_t* OcrResponse::_InternalSerialize(
+uint8_t* OcrRespond::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ocr_protobuf.OcrResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:ocr_protobuf.OcrRespond)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 type = 1;
-  if (this->_internal_type() != 0) {
+  // optional int32 type = 1;
+  if (_internal_has_type()) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_type(), target);
   }
 
-  // int32 task_id = 2;
-  if (this->_internal_task_id() != 0) {
+  // optional uint64 task_id = 2;
+  if (_internal_has_task_id()) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_task_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_task_id(), target);
   }
 
-  // int32 err_code = 3;
-  if (this->_internal_err_code() != 0) {
+  // optional int32 err_code = 3;
+  if (_internal_has_err_code()) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_err_code(), target);
   }
 
-  // .ocr_protobuf.OcrResponse.OcrResult ocr_result = 4;
-  if (this->_internal_has_ocr_result()) {
+  // optional .ocr_protobuf.OcrRespond.OcrOutputBuffer ocr_result = 4;
+  if (_internal_has_ocr_result()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(4, _Internal::ocr_result(this),
         _Internal::ocr_result(this).GetCachedSize(), target, stream);
@@ -1768,40 +2104,43 @@ uint8_t* OcrResponse::_InternalSerialize(
     target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
         static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ocr_protobuf.OcrResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:ocr_protobuf.OcrRespond)
   return target;
 }
 
-size_t OcrResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ocr_protobuf.OcrResponse)
+size_t OcrRespond::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ocr_protobuf.OcrRespond)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .ocr_protobuf.OcrResponse.OcrResult ocr_result = 4;
-  if (this->_internal_has_ocr_result()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.ocr_result_);
-  }
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional .ocr_protobuf.OcrRespond.OcrOutputBuffer ocr_result = 4;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.ocr_result_);
+    }
 
-  // int32 type = 1;
-  if (this->_internal_type() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_type());
-  }
+    // optional uint64 task_id = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_task_id());
+    }
 
-  // int32 task_id = 2;
-  if (this->_internal_task_id() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_task_id());
-  }
+    // optional int32 type = 1;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_type());
+    }
 
-  // int32 err_code = 3;
-  if (this->_internal_err_code() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_err_code());
-  }
+    // optional int32 err_code = 3;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_err_code());
+    }
 
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
@@ -1810,97 +2149,150 @@ size_t OcrResponse::ByteSizeLong() const {
   return total_size;
 }
 
-void OcrResponse::CheckTypeAndMergeFrom(
+void OcrRespond::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::_pbi::DownCast<const OcrResponse*>(
+  MergeFrom(*::_pbi::DownCast<const OcrRespond*>(
       &from));
 }
 
-void OcrResponse::MergeFrom(const OcrResponse& from) {
-  OcrResponse* const _this = this;
-  // @@protoc_insertion_point(class_specific_merge_from_start:ocr_protobuf.OcrResponse)
+void OcrRespond::MergeFrom(const OcrRespond& from) {
+  OcrRespond* const _this = this;
+  // @@protoc_insertion_point(class_specific_merge_from_start:ocr_protobuf.OcrRespond)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_ocr_result()) {
-    _this->_internal_mutable_ocr_result()->::ocr_protobuf::OcrResponse_OcrResult::MergeFrom(
-        from._internal_ocr_result());
-  }
-  if (from._internal_type() != 0) {
-    _this->_internal_set_type(from._internal_type());
-  }
-  if (from._internal_task_id() != 0) {
-    _this->_internal_set_task_id(from._internal_task_id());
-  }
-  if (from._internal_err_code() != 0) {
-    _this->_internal_set_err_code(from._internal_err_code());
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_mutable_ocr_result()->::ocr_protobuf::OcrRespond_OcrOutputBuffer::MergeFrom(
+          from._internal_ocr_result());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.task_id_ = from._impl_.task_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.type_ = from._impl_.type_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.err_code_ = from._impl_.err_code_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
-void OcrResponse::CopyFrom(const OcrResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ocr_protobuf.OcrResponse)
+void OcrRespond::CopyFrom(const OcrRespond& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ocr_protobuf.OcrRespond)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool OcrResponse::IsInitialized() const {
+bool OcrRespond::IsInitialized() const {
   return true;
 }
 
-void OcrResponse::InternalSwap(OcrResponse* other) {
+void OcrRespond::InternalSwap(OcrRespond* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(OcrResponse, _impl_.err_code_)
-      + sizeof(OcrResponse::_impl_.err_code_)
-      - PROTOBUF_FIELD_OFFSET(OcrResponse, _impl_.ocr_result_)>(
+      PROTOBUF_FIELD_OFFSET(OcrRespond, _impl_.err_code_)
+      + sizeof(OcrRespond::_impl_.err_code_)
+      - PROTOBUF_FIELD_OFFSET(OcrRespond, _impl_.ocr_result_)>(
           reinterpret_cast<char*>(&_impl_.ocr_result_),
           reinterpret_cast<char*>(&other->_impl_.ocr_result_));
 }
 
-std::string OcrResponse::GetTypeName() const {
-  return "ocr_protobuf.OcrResponse";
+std::string OcrRespond::GetTypeName() const {
+  return "ocr_protobuf.OcrRespond";
 }
 
 
 // ===================================================================
 
-class OcrRequest_PicPaths::_Internal {
+class OcrRequest_OcrInputBuffer::_Internal {
  public:
+  using HasBits = decltype(std::declval<OcrRequest_OcrInputBuffer>()._impl_._has_bits_);
+  static void set_has_pic_path(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_u2(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_u3(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_pic_data(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
 };
 
-OcrRequest_PicPaths::OcrRequest_PicPaths(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+OcrRequest_OcrInputBuffer::OcrRequest_OcrInputBuffer(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:ocr_protobuf.OcrRequest.PicPaths)
+  // @@protoc_insertion_point(arena_constructor:ocr_protobuf.OcrRequest.OcrInputBuffer)
 }
-OcrRequest_PicPaths::OcrRequest_PicPaths(const OcrRequest_PicPaths& from)
+OcrRequest_OcrInputBuffer::OcrRequest_OcrInputBuffer(const OcrRequest_OcrInputBuffer& from)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  OcrRequest_PicPaths* const _this = this; (void)_this;
+  OcrRequest_OcrInputBuffer* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.pic_path_){from._impl_.pic_path_}
-    , /*decltype(_impl_._cached_size_)*/{}};
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.pic_path_){}
+    , decltype(_impl_.pic_data_){}
+    , decltype(_impl_.u2_){}
+    , decltype(_impl_.u3_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrRequest.PicPaths)
+  _impl_.pic_path_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.pic_path_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_pic_path()) {
+    _this->_impl_.pic_path_.Set(from._internal_pic_path(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.pic_data_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.pic_data_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_pic_data()) {
+    _this->_impl_.pic_data_.Set(from._internal_pic_data(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.u2_, &from._impl_.u2_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.u3_) -
+    reinterpret_cast<char*>(&_impl_.u2_)) + sizeof(_impl_.u3_));
+  // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrRequest.OcrInputBuffer)
 }
 
-inline void OcrRequest_PicPaths::SharedCtor(
+inline void OcrRequest_OcrInputBuffer::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.pic_path_){arena}
+      decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.pic_path_){}
+    , decltype(_impl_.pic_data_){}
+    , decltype(_impl_.u2_){0u}
+    , decltype(_impl_.u3_){0u}
   };
+  _impl_.pic_path_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.pic_path_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.pic_data_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.pic_data_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
-OcrRequest_PicPaths::~OcrRequest_PicPaths() {
-  // @@protoc_insertion_point(destructor:ocr_protobuf.OcrRequest.PicPaths)
+OcrRequest_OcrInputBuffer::~OcrRequest_OcrInputBuffer() {
+  // @@protoc_insertion_point(destructor:ocr_protobuf.OcrRequest.OcrInputBuffer)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<std::string>()) {
   (void)arena;
     return;
@@ -1908,43 +2300,81 @@ OcrRequest_PicPaths::~OcrRequest_PicPaths() {
   SharedDtor();
 }
 
-inline void OcrRequest_PicPaths::SharedDtor() {
+inline void OcrRequest_OcrInputBuffer::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.pic_path_.~RepeatedPtrField();
+  _impl_.pic_path_.Destroy();
+  _impl_.pic_data_.Destroy();
 }
 
-void OcrRequest_PicPaths::SetCachedSize(int size) const {
+void OcrRequest_OcrInputBuffer::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void OcrRequest_PicPaths::Clear() {
-// @@protoc_insertion_point(message_clear_start:ocr_protobuf.OcrRequest.PicPaths)
+void OcrRequest_OcrInputBuffer::Clear() {
+// @@protoc_insertion_point(message_clear_start:ocr_protobuf.OcrRequest.OcrInputBuffer)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.pic_path_.Clear();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.pic_path_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _impl_.pic_data_.ClearNonDefaultToEmpty();
+    }
+  }
+  if (cached_has_bits & 0x0000000cu) {
+    ::memset(&_impl_.u2_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.u3_) -
+        reinterpret_cast<char*>(&_impl_.u2_)) + sizeof(_impl_.u3_));
+  }
+  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
 }
 
-const char* OcrRequest_PicPaths::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* OcrRequest_OcrInputBuffer::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated string pic_path = 1;
+      // optional string pic_path = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            auto str = _internal_add_pic_path();
-            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(ptr);
-            CHK_(::_pbi::VerifyUTF8(str, nullptr));
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+          auto str = _internal_mutable_pic_path();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, nullptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 u2 = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_u2(&has_bits);
+          _impl_.u2_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 u3 = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_u3(&has_bits);
+          _impl_.u3_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bytes pic_data = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_pic_data();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -1964,6 +2394,7 @@ const char* OcrRequest_PicPaths::_InternalParse(const char* ptr, ::_pbi::ParseCo
     CHK_(ptr != nullptr);
   }  // while
 message_done:
+  _impl_._has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -1971,46 +2402,83 @@ failure:
 #undef CHK_
 }
 
-uint8_t* OcrRequest_PicPaths::_InternalSerialize(
+uint8_t* OcrRequest_OcrInputBuffer::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ocr_protobuf.OcrRequest.PicPaths)
+  // @@protoc_insertion_point(serialize_to_array_start:ocr_protobuf.OcrRequest.OcrInputBuffer)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated string pic_path = 1;
-  for (int i = 0, n = this->_internal_pic_path_size(); i < n; i++) {
-    const auto& s = this->_internal_pic_path(i);
+  // optional string pic_path = 1;
+  if (_internal_has_pic_path()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      s.data(), static_cast<int>(s.length()),
+      this->_internal_pic_path().data(), static_cast<int>(this->_internal_pic_path().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ocr_protobuf.OcrRequest.PicPaths.pic_path");
-    target = stream->WriteString(1, s, target);
+      "ocr_protobuf.OcrRequest.OcrInputBuffer.pic_path");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_pic_path(), target);
+  }
+
+  // optional uint32 u2 = 2;
+  if (_internal_has_u2()) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_u2(), target);
+  }
+
+  // optional uint32 u3 = 3;
+  if (_internal_has_u3()) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_u3(), target);
+  }
+
+  // optional bytes pic_data = 4;
+  if (_internal_has_pic_data()) {
+    target = stream->WriteBytesMaybeAliased(
+        4, this->_internal_pic_data(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
         static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ocr_protobuf.OcrRequest.PicPaths)
+  // @@protoc_insertion_point(serialize_to_array_end:ocr_protobuf.OcrRequest.OcrInputBuffer)
   return target;
 }
 
-size_t OcrRequest_PicPaths::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ocr_protobuf.OcrRequest.PicPaths)
+size_t OcrRequest_OcrInputBuffer::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ocr_protobuf.OcrRequest.OcrInputBuffer)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string pic_path = 1;
-  total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.pic_path_.size());
-  for (int i = 0, n = _impl_.pic_path_.size(); i < n; i++) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-      _impl_.pic_path_.Get(i));
-  }
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional string pic_path = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_pic_path());
+    }
 
+    // optional bytes pic_data = 4;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+          this->_internal_pic_data());
+    }
+
+    // optional uint32 u2 = 2;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_u2());
+    }
+
+    // optional uint32 u3 = 3;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_u3());
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
@@ -2019,42 +2487,73 @@ size_t OcrRequest_PicPaths::ByteSizeLong() const {
   return total_size;
 }
 
-void OcrRequest_PicPaths::CheckTypeAndMergeFrom(
+void OcrRequest_OcrInputBuffer::CheckTypeAndMergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::_pbi::DownCast<const OcrRequest_PicPaths*>(
+  MergeFrom(*::_pbi::DownCast<const OcrRequest_OcrInputBuffer*>(
       &from));
 }
 
-void OcrRequest_PicPaths::MergeFrom(const OcrRequest_PicPaths& from) {
-  OcrRequest_PicPaths* const _this = this;
-  // @@protoc_insertion_point(class_specific_merge_from_start:ocr_protobuf.OcrRequest.PicPaths)
+void OcrRequest_OcrInputBuffer::MergeFrom(const OcrRequest_OcrInputBuffer& from) {
+  OcrRequest_OcrInputBuffer* const _this = this;
+  // @@protoc_insertion_point(class_specific_merge_from_start:ocr_protobuf.OcrRequest.OcrInputBuffer)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.pic_path_.MergeFrom(from._impl_.pic_path_);
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_set_pic_path(from._internal_pic_path());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_internal_set_pic_data(from._internal_pic_data());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.u2_ = from._impl_.u2_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.u3_ = from._impl_.u3_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
   _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
-void OcrRequest_PicPaths::CopyFrom(const OcrRequest_PicPaths& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ocr_protobuf.OcrRequest.PicPaths)
+void OcrRequest_OcrInputBuffer::CopyFrom(const OcrRequest_OcrInputBuffer& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ocr_protobuf.OcrRequest.OcrInputBuffer)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool OcrRequest_PicPaths::IsInitialized() const {
+bool OcrRequest_OcrInputBuffer::IsInitialized() const {
   return true;
 }
 
-void OcrRequest_PicPaths::InternalSwap(OcrRequest_PicPaths* other) {
+void OcrRequest_OcrInputBuffer::InternalSwap(OcrRequest_OcrInputBuffer* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.pic_path_.InternalSwap(&other->_impl_.pic_path_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.pic_path_, lhs_arena,
+      &other->_impl_.pic_path_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.pic_data_, lhs_arena,
+      &other->_impl_.pic_data_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(OcrRequest_OcrInputBuffer, _impl_.u3_)
+      + sizeof(OcrRequest_OcrInputBuffer::_impl_.u3_)
+      - PROTOBUF_FIELD_OFFSET(OcrRequest_OcrInputBuffer, _impl_.u2_)>(
+          reinterpret_cast<char*>(&_impl_.u2_),
+          reinterpret_cast<char*>(&other->_impl_.u2_));
 }
 
-std::string OcrRequest_PicPaths::GetTypeName() const {
-  return "ocr_protobuf.OcrRequest.PicPaths";
+std::string OcrRequest_OcrInputBuffer::GetTypeName() const {
+  return "ocr_protobuf.OcrRequest.OcrInputBuffer";
 }
 
 
@@ -2062,12 +2561,12 @@ std::string OcrRequest_PicPaths::GetTypeName() const {
 
 class OcrRequest::_Internal {
  public:
-  static const ::ocr_protobuf::OcrRequest_PicPaths& pic_path(const OcrRequest* msg);
+  static const ::ocr_protobuf::OcrRequest_OcrInputBuffer& input(const OcrRequest* msg);
 };
 
-const ::ocr_protobuf::OcrRequest_PicPaths&
-OcrRequest::_Internal::pic_path(const OcrRequest* msg) {
-  return *msg->_impl_.pic_path_;
+const ::ocr_protobuf::OcrRequest_OcrInputBuffer&
+OcrRequest::_Internal::input(const OcrRequest* msg) {
+  return *msg->_impl_.input_;
 }
 OcrRequest::OcrRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -2079,18 +2578,18 @@ OcrRequest::OcrRequest(const OcrRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
   OcrRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.pic_path_){nullptr}
-    , decltype(_impl_.unknow_){}
+      decltype(_impl_.input_){nullptr}
     , decltype(_impl_.task_id_){}
+    , decltype(_impl_.unknow_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  if (from._internal_has_pic_path()) {
-    _this->_impl_.pic_path_ = new ::ocr_protobuf::OcrRequest_PicPaths(*from._impl_.pic_path_);
+  if (from._internal_has_input()) {
+    _this->_impl_.input_ = new ::ocr_protobuf::OcrRequest_OcrInputBuffer(*from._impl_.input_);
   }
-  ::memcpy(&_impl_.unknow_, &from._impl_.unknow_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.task_id_) -
-    reinterpret_cast<char*>(&_impl_.unknow_)) + sizeof(_impl_.task_id_));
+  ::memcpy(&_impl_.task_id_, &from._impl_.task_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.unknow_) -
+    reinterpret_cast<char*>(&_impl_.task_id_)) + sizeof(_impl_.unknow_));
   // @@protoc_insertion_point(copy_constructor:ocr_protobuf.OcrRequest)
 }
 
@@ -2099,9 +2598,9 @@ inline void OcrRequest::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.pic_path_){nullptr}
+      decltype(_impl_.input_){nullptr}
+    , decltype(_impl_.task_id_){uint64_t{0u}}
     , decltype(_impl_.unknow_){0}
-    , decltype(_impl_.task_id_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -2117,7 +2616,7 @@ OcrRequest::~OcrRequest() {
 
 inline void OcrRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete _impl_.pic_path_;
+  if (this != internal_default_instance()) delete _impl_.input_;
 }
 
 void OcrRequest::SetCachedSize(int size) const {
@@ -2130,13 +2629,13 @@ void OcrRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && _impl_.pic_path_ != nullptr) {
-    delete _impl_.pic_path_;
+  if (GetArenaForAllocation() == nullptr && _impl_.input_ != nullptr) {
+    delete _impl_.input_;
   }
-  _impl_.pic_path_ = nullptr;
-  ::memset(&_impl_.unknow_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.task_id_) -
-      reinterpret_cast<char*>(&_impl_.unknow_)) + sizeof(_impl_.task_id_));
+  _impl_.input_ = nullptr;
+  ::memset(&_impl_.task_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.unknow_) -
+      reinterpret_cast<char*>(&_impl_.task_id_)) + sizeof(_impl_.unknow_));
   _internal_metadata_.Clear<std::string>();
 }
 
@@ -2154,18 +2653,18 @@ const char* OcrRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ct
         } else
           goto handle_unusual;
         continue;
-      // int32 task_id = 2;
+      // uint64 task_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _impl_.task_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _impl_.task_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // .ocr_protobuf.OcrRequest.PicPaths pic_path = 3;
+      // .ocr_protobuf.OcrRequest.OcrInputBuffer input = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_pic_path(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_input(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2205,17 +2704,17 @@ uint8_t* OcrRequest::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_unknow(), target);
   }
 
-  // int32 task_id = 2;
+  // uint64 task_id = 2;
   if (this->_internal_task_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_task_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_task_id(), target);
   }
 
-  // .ocr_protobuf.OcrRequest.PicPaths pic_path = 3;
-  if (this->_internal_has_pic_path()) {
+  // .ocr_protobuf.OcrRequest.OcrInputBuffer input = 3;
+  if (this->_internal_has_input()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, _Internal::pic_path(this),
-        _Internal::pic_path(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(3, _Internal::input(this),
+        _Internal::input(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2234,21 +2733,21 @@ size_t OcrRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .ocr_protobuf.OcrRequest.PicPaths pic_path = 3;
-  if (this->_internal_has_pic_path()) {
+  // .ocr_protobuf.OcrRequest.OcrInputBuffer input = 3;
+  if (this->_internal_has_input()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.pic_path_);
+        *_impl_.input_);
+  }
+
+  // uint64 task_id = 2;
+  if (this->_internal_task_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_task_id());
   }
 
   // int32 unknow = 1;
   if (this->_internal_unknow() != 0) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_unknow());
-  }
-
-  // int32 task_id = 2;
-  if (this->_internal_task_id() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_task_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2272,15 +2771,15 @@ void OcrRequest::MergeFrom(const OcrRequest& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_pic_path()) {
-    _this->_internal_mutable_pic_path()->::ocr_protobuf::OcrRequest_PicPaths::MergeFrom(
-        from._internal_pic_path());
-  }
-  if (from._internal_unknow() != 0) {
-    _this->_internal_set_unknow(from._internal_unknow());
+  if (from._internal_has_input()) {
+    _this->_internal_mutable_input()->::ocr_protobuf::OcrRequest_OcrInputBuffer::MergeFrom(
+        from._internal_input());
   }
   if (from._internal_task_id() != 0) {
     _this->_internal_set_task_id(from._internal_task_id());
+  }
+  if (from._internal_unknow() != 0) {
+    _this->_internal_set_unknow(from._internal_unknow());
   }
   _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
@@ -2300,11 +2799,11 @@ void OcrRequest::InternalSwap(OcrRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(OcrRequest, _impl_.task_id_)
-      + sizeof(OcrRequest::_impl_.task_id_)
-      - PROTOBUF_FIELD_OFFSET(OcrRequest, _impl_.pic_path_)>(
-          reinterpret_cast<char*>(&_impl_.pic_path_),
-          reinterpret_cast<char*>(&other->_impl_.pic_path_));
+      PROTOBUF_FIELD_OFFSET(OcrRequest, _impl_.unknow_)
+      + sizeof(OcrRequest::_impl_.unknow_)
+      - PROTOBUF_FIELD_OFFSET(OcrRequest, _impl_.input_)>(
+          reinterpret_cast<char*>(&_impl_.input_),
+          reinterpret_cast<char*>(&other->_impl_.input_));
 }
 
 std::string OcrRequest::GetTypeName() const {
@@ -2315,33 +2814,33 @@ std::string OcrRequest::GetTypeName() const {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace ocr_protobuf
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrResponse_OcrResult_ResultPos_PosXY*
-Arena::CreateMaybeMessage< ::ocr_protobuf::OcrResponse_OcrResult_ResultPos_PosXY >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ocr_protobuf::OcrResponse_OcrResult_ResultPos_PosXY >(arena);
+template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrRespond_OcrBoxPoint*
+Arena::CreateMaybeMessage< ::ocr_protobuf::OcrRespond_OcrBoxPoint >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ocr_protobuf::OcrRespond_OcrBoxPoint >(arena);
 }
-template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrResponse_OcrResult_ResultPos*
-Arena::CreateMaybeMessage< ::ocr_protobuf::OcrResponse_OcrResult_ResultPos >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ocr_protobuf::OcrResponse_OcrResult_ResultPos >(arena);
+template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrRespond_OcrBox*
+Arena::CreateMaybeMessage< ::ocr_protobuf::OcrRespond_OcrBox >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ocr_protobuf::OcrRespond_OcrBox >(arena);
 }
-template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrResponse_OcrResult_SingleResult_OneResult*
-Arena::CreateMaybeMessage< ::ocr_protobuf::OcrResponse_OcrResult_SingleResult_OneResult >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ocr_protobuf::OcrResponse_OcrResult_SingleResult_OneResult >(arena);
+template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrRespond_OCRResultChar*
+Arena::CreateMaybeMessage< ::ocr_protobuf::OcrRespond_OCRResultChar >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ocr_protobuf::OcrRespond_OCRResultChar >(arena);
 }
-template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrResponse_OcrResult_SingleResult*
-Arena::CreateMaybeMessage< ::ocr_protobuf::OcrResponse_OcrResult_SingleResult >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ocr_protobuf::OcrResponse_OcrResult_SingleResult >(arena);
+template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrRespond_OCRResultLine*
+Arena::CreateMaybeMessage< ::ocr_protobuf::OcrRespond_OCRResultLine >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ocr_protobuf::OcrRespond_OCRResultLine >(arena);
 }
-template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrResponse_OcrResult*
-Arena::CreateMaybeMessage< ::ocr_protobuf::OcrResponse_OcrResult >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ocr_protobuf::OcrResponse_OcrResult >(arena);
+template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrRespond_OcrOutputBuffer*
+Arena::CreateMaybeMessage< ::ocr_protobuf::OcrRespond_OcrOutputBuffer >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ocr_protobuf::OcrRespond_OcrOutputBuffer >(arena);
 }
-template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrResponse*
-Arena::CreateMaybeMessage< ::ocr_protobuf::OcrResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ocr_protobuf::OcrResponse >(arena);
+template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrRespond*
+Arena::CreateMaybeMessage< ::ocr_protobuf::OcrRespond >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ocr_protobuf::OcrRespond >(arena);
 }
-template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrRequest_PicPaths*
-Arena::CreateMaybeMessage< ::ocr_protobuf::OcrRequest_PicPaths >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ocr_protobuf::OcrRequest_PicPaths >(arena);
+template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrRequest_OcrInputBuffer*
+Arena::CreateMaybeMessage< ::ocr_protobuf::OcrRequest_OcrInputBuffer >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ocr_protobuf::OcrRequest_OcrInputBuffer >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ocr_protobuf::OcrRequest*
 Arena::CreateMaybeMessage< ::ocr_protobuf::OcrRequest >(Arena* arena) {

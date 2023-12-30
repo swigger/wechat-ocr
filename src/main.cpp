@@ -1,5 +1,6 @@
 ﻿#include "stdafx.h"
 #include "wechatocr.h"
+#include <google/protobuf/stubs/common.h>
 
 // dllmain
 int APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
@@ -28,6 +29,11 @@ HRESULT DllRegisterServer(void)
 		SetConsoleCP(CP_UTF8);
 		SetConsoleOutputCP(CP_UTF8);
 	}
+
+	// printf("Protobuf version: %u\n", GOOGLE_PROTOBUF_VERSION);
+	// printf("tencent protobuf version string: %s\n", google::protobuf::internal::VersionString(2005000).c_str());
+	string msg;
+
 	CWeChatOCR wechat_ocr(_wgetenv(L"WECHATOCR_EXE"), _wgetenv(L"WECHAT_DIR"));
 	if (!wechat_ocr.wait_connection(5000)) {
 		return E_FAIL;

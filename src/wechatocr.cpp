@@ -45,9 +45,9 @@ bool CWeChatOCR::doOCR(crefstr imgpath, result_t* res)
 	ocr_protobuf::OcrRequest ocr_request;
 	ocr_request.set_unknow(0);
 	ocr_request.set_task_id(found_id);
-	ocr_protobuf::OcrRequest::PicPaths* pp = new ocr_protobuf::OcrRequest::PicPaths();
-	pp->add_pic_path(imgpath);
-	ocr_request.set_allocated_pic_path(pp);
+	auto pp = new ocr_protobuf::OcrRequest::OcrInputBuffer;
+	pp->set_pic_path(imgpath);
+	ocr_request.set_allocated_input(pp);
 
 	std::string data_;
 	ocr_request.SerializeToString(&data_);
@@ -66,9 +66,9 @@ void CWeChatOCR::ReadOnPush(uint32_t request_id, const void* request_info)
 	uint32_t pb_size;
 	const void* pb_data = GetMMMojoReadInfoRequest(request_info, &pb_size);
 	if (pb_data) {
-		ocr_protobuf::OcrResponse ocr_response;
+		ocr_protobuf::OcrRespond ocr_response;
 		ocr_response.ParseFromArray(pb_data, pb_size);
-		uint32_t task_id = ocr_response.task_id();
+		uint64_t task_id = ocr_response.task_id();
 		uint32_t type = ocr_response.type();
 		auto ec = ocr_response.err_code();
 		if (type == 1) {
@@ -89,15 +89,15 @@ void CWeChatOCR::ReadOnPush(uint32_t request_id, const void* request_info)
 			res.errcode = ec;
 			if (ocr_response.has_ocr_result()) {
 				const auto& ocr_result = ocr_response.ocr_result();
-				for (int i = 0, mi = ocr_result.single_result_size(); i < mi; ++i) {
+				for (int i = 0, mi = ocr_result.lines_size(); i < mi; ++i) {
 					text_block_t tb;
-					const auto& single_result = ocr_result.single_result(i);
+					const auto& single_result = ocr_result.lines(i);
 					tb.left = single_result.left();
 					tb.top = single_result.top();
 					tb.right = single_result.right();
 					tb.bottom = single_result.bottom();
-					tb.rate = single_result.single_rate();
-					tb.text = single_result.single_str_utf8();
+					tb.rate = single_result.rate();
+					tb.text = single_result.text();
 					printf("{%.1f,%.1f,%.1f,%.1f}: \"%s\", rate=%.3f\n", tb.left, tb.top, tb.right, tb.bottom, tb.text.c_str(), tb.rate);
 					res.ocr_response.push_back(std::move(tb));
 				}
