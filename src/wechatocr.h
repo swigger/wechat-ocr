@@ -12,6 +12,7 @@ public:
 	struct result_t {
 		string imgpath;
 		int errcode;
+		int width, height;
 		std::vector<text_block_t> ocr_response;
 	};
 protected:

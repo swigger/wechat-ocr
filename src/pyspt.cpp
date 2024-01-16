@@ -72,6 +72,13 @@ static PyObject* py_ocr(PyObject* self, PyObject* args) {
 	PyDict_SetItemString(dict, "errcode", tmpo);
 	Py_DECREF(tmpo);
 
+	tmpo = PyLong_FromLong(res.width);
+	PyDict_SetItemString(dict, "width", tmpo);
+	Py_DECREF(tmpo);
+	tmpo = PyLong_FromLong(res.height);
+	PyDict_SetItemString(dict, "height", tmpo);
+	Py_DECREF(tmpo);
+
 	tmpo = PyList_New(res.ocr_response.size());
 	size_t idx = 0;
 	for (auto& kv : res.ocr_response) {

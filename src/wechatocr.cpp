@@ -88,8 +88,13 @@ void CWeChatOCR::ReadOnPush(uint32_t request_id, const void* request_info)
 			// ocr result.
 			result_t res, *wres=0;
 			res.errcode = ec;
+			res.width = 0;
+			res.height = 0;
 			if (ocr_response.has_ocr_result()) {
 				const auto& ocr_result = ocr_response.ocr_result();
+				res.width = ocr_result.img_width();
+				res.height = ocr_result.img_height();
+
 				for (int i = 0, mi = ocr_result.lines_size(); i < mi; ++i) {
 					text_block_t tb;
 					const auto& single_result = ocr_result.lines(i);
@@ -99,7 +104,7 @@ void CWeChatOCR::ReadOnPush(uint32_t request_id, const void* request_info)
 					tb.bottom = single_result.bottom();
 					tb.rate = single_result.rate();
 					tb.text = single_result.text();
-					printf("{%.1f,%.1f,%.1f,%.1f}: \"%s\", rate=%.3f\n", tb.left, tb.top, tb.right, tb.bottom, tb.text.c_str(), tb.rate);
+					// printf("{%.1f,%.1f,%.1f,%.1f}: \"%s\", rate=%.3f\n", tb.left, tb.top, tb.right, tb.bottom, tb.text.c_str(), tb.rate);
 					res.ocr_response.push_back(std::move(tb));
 				}
 			}

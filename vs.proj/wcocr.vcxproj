@@ -101,8 +101,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../spt;X:\tools\Python310\libs</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mmmojo_64.lib;x64/libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../spt/x64;X:\tools\Python310\libs</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mmmojo_64.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <DelayLoadDLLs>mmmojo_64.dll</DelayLoadDLLs>
     </Link>
     <Midl>
@@ -130,8 +130,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../spt</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mmmojo.lib;x86/libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../spt/x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mmmojo.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <DelayLoadDLLs>mmmojo.dll</DelayLoadDLLs>
     </Link>
     <Midl>
@@ -163,8 +163,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../spt;X:\tools\Python310\libs</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mmmojo_64.lib;x64/libprotobuf-lite.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../spt/x64;X:\tools\Python310\libs</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mmmojo_64.lib;libprotobuf-lite.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <DelayLoadDLLs>mmmojo_64.dll</DelayLoadDLLs>
     </Link>
     <Midl>
@@ -196,8 +196,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../spt</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mmmojo.lib;x86/libprotobuf-lite.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../spt/x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mmmojo.lib;libprotobuf-lite.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <DelayLoadDLLs>mmmojo.dll</DelayLoadDLLs>
     </Link>
     <Midl>
@@ -226,7 +226,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\mmmojo.h" />
+    <ClInclude Include="..\src\mmmojo.h" />
     <ClInclude Include="..\src\mojocall.h" />
     <ClInclude Include="..\src\ocr_protobuf.pb.h" />
     <ClInclude Include="..\src\pyspt.h" />

@@ -19,12 +19,14 @@ bool CMojoCall::Init(LPCWSTR wcdir)
 		std::wstring mojo_dll = wcdir;
 		if (mojo_dll.empty()) return false;
 		if (mojo_dll.back() != L'\\') mojo_dll += L'\\';
+		size_t osz = mojo_dll.size();
 #ifdef _WIN64
 		mojo_dll += L"mmmojo_64.dll";
 #else
 		mojo_dll += L"mmmojo.dll";
 #endif
-		auto mod = LoadLibraryW(mojo_dll.c_str());
+		auto mod = GetModuleHandleW(mojo_dll.c_str() + osz);
+		if (!mod) mod = LoadLibraryW(mojo_dll.c_str());
 		if (mod == NULL) return false;
 		m_mod = mod;
 		InitializeMMMojo(0, 0);

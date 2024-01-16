@@ -7,9 +7,6 @@
     <Filter Include="vs.proj">
       <UniqueIdentifier>{2CE2AC29-0BEB-4C66-BE65-33D8AAAE505B}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include">
-      <UniqueIdentifier>{3c529202-a8a9-4f8a-919c-2334789c2c94}</UniqueIdentifier>
-    </Filter>
     <Filter Include="pb">
       <UniqueIdentifier>{cb0b7138-ed7c-4a7c-851d-62abd130775b}</UniqueIdentifier>
     </Filter>
@@ -47,10 +44,10 @@
     <ClInclude Include="..\src\wechatocr.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\mmmojo.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\ocr_protobuf.pb.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mmmojo.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
