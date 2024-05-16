@@ -30,7 +30,7 @@ ocr.doOCR("D:\\test.png", &result);
 You can also pass `nullptr` to the second parameter of `doOCR` to call in async mode and wait the callback.
 In this case, you need to subclass `CWeChatOCR` and implement the virtual function `OnOCRResult`.
 
-## python interface
+## Python interface
 Rename the built `wcocr.dll` to `wcocr.pyd` and put it in the same directory as `test.py`.
 You can use the following code to test it:
 
@@ -41,3 +41,10 @@ result = wcocr.ocr("D:\\test.png")
 ```
 
 Currently, the python interface only supports sync mode.
+
+## Java interface
+
+* see java/Test.java
+* I'm not so familiar with java and don't know how to pass complex data structures, so I just passed a JSON string from cpp to java.
+* The added DLL export function `wechat_ocr` can also be used in other scenarios.
+
