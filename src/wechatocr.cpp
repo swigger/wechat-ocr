@@ -3,10 +3,55 @@
 #include "ocr_protobuf.pb.h"
 #include "mmmojo.h"
 
+namespace {
+	bool is_text_utf8(const char* sin, size_t len) {
+		const unsigned char* s = (const unsigned char*)sin;
+		const unsigned char* end = s + len;
+		while (s < end) {
+			if (*s < 0x80) {
+				++s;
+			} else if (*s < 0xC0) {
+				return false;
+			} else if (*s < 0xE0) {
+				if (s + 1 >= end || (s[1] & 0xC0) != 0x80)
+					return false;
+				s += 2;
+			} else if (*s < 0xF0) {
+				if (s + 2 >= end || (s[1] & 0xC0) != 0x80 || (s[2] & 0xC0) != 0x80)
+					return false;
+				s += 3;
+			} else if (*s < 0xF8) {
+				if (s + 3 >= end || (s[1] & 0xC0) != 0x80 || (s[2] & 0xC0) != 0x80 || (s[3] & 0xC0) != 0x80)
+					return false;
+				s += 4;
+			} else {
+				return false;
+			}
+		}
+		return true;
+	}
+
+}
+
 CWeChatOCR::CWeChatOCR(LPCWSTR exe, LPCWSTR wcdir)
 {
 	m_exe = exe;
 	m_wcdir = wcdir;
+	DWORD attr1 = GetFileAttributesW(exe);
+	if (attr1 == INVALID_FILE_ATTRIBUTES || (attr1 & FILE_ATTRIBUTE_DIRECTORY) != 0)
+	{
+		// 传入的ocr.exe路径无效
+		m_state = STATE_INVALID;
+		return;
+	}
+	DWORD attr2 = GetFileAttributesW(wcdir);
+	if (attr2 == INVALID_FILE_ATTRIBUTES || (attr2 & FILE_ATTRIBUTE_DIRECTORY) == 0)
+	{
+		// 传入的微信目录无效
+		m_state = STATE_INVALID;
+		return;
+	}
+
 	if (Init(m_wcdir.c_str()))
 	{
 		m_args["user-lib-dir"] = m_wcdir;
@@ -22,17 +67,35 @@ CWeChatOCR::CWeChatOCR(LPCWSTR exe, LPCWSTR wcdir)
 }
 
 #define OCR_MAX_TASK_ID INT_MAX
-bool CWeChatOCR::doOCR(crefstr imgpath, result_t* res)
+bool CWeChatOCR::doOCR(crefstr imgpath0, result_t* res)
 {
 	if (m_state == STATE_INVALID || (m_state == STATE_PENDING && !wait_connection(2000)))
 		return false;
+
+	// 为了更好的中文支持，这里检查imgpath是否是utf8编码的，如果是GBK，需要转换为utf8编码。
+	// TODO: 其实不应该写在这里，应该是调用者确保传入的imgpath是utf8编码的。
+	string tmp;
+	const string * imgpath = &imgpath0;
+	if (!is_text_utf8(imgpath0.c_str(), imgpath0.length())) {
+		wstring wimgpath;
+		wimgpath.resize(imgpath0.size() + 10);
+		int len = MultiByteToWideChar(CP_ACP, 0, imgpath0.c_str(), (int)imgpath0.length(), &wimgpath[0], (int)wimgpath.size());
+		if (len > 0) {
+			tmp.resize(len * 3 + 10);
+			len = WideCharToMultiByte(CP_UTF8, 0, wimgpath.c_str(), len, &tmp[0], (int)tmp.size(), 0, 0);
+			if (len > 0) {
+				tmp.resize(len);
+				imgpath = &tmp;
+			}
+		}
+	}
 
 	int found_id = -1;
 	m_mutex.lock();
 	// TODO: task_id本身可以是任何正整形数，但是这里要不要限制同时并发任务数呢？
 	for (uint32_t i = 1; i <= OCR_MAX_TASK_ID; ++i)
 	{
-		if (m_idpath.insert(std::make_pair(i, std::pair<string,result_t*>(imgpath,res))).second)
+		if (m_idpath.insert(std::make_pair(i, std::pair<string,result_t*>(*imgpath,res))).second)
 		{
 			found_id = i;
 			break;
@@ -47,7 +110,7 @@ bool CWeChatOCR::doOCR(crefstr imgpath, result_t* res)
 	ocr_request.set_unknow(0);
 	ocr_request.set_task_id(found_id);
 	auto pp = new ocr_protobuf::OcrRequest::OcrInputBuffer;
-	pp->set_pic_path(imgpath);
+	pp->set_pic_path(*imgpath);
 	ocr_request.set_allocated_input(pp);
 
 	std::string data_;

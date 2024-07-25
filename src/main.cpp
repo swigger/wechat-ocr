@@ -75,7 +75,6 @@ HRESULT DllRegisterServer(void)
 		return E_FAIL;
 	}
 	wechat_ocr.doOCR(getenv("TEST_PNG"), nullptr);
-	// MessageBoxW(NULL, L"注册成功", L"提示", MB_OK);
 	wechat_ocr.wait_done(-1);
 	return S_OK;
 }

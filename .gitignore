@@ -13,3 +13,6 @@
 
 .vs/
 /demo/
+Properties/
+bin/
+obj/
