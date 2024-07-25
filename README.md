@@ -48,3 +48,7 @@ Currently, the python interface only supports sync mode.
 * I'm not so familiar with java and don't know how to pass complex data structures, so I just passed a JSON string from cpp to java.
 * The added DLL export function `wechat_ocr` can also be used in other scenarios.
 
+## C Sharp (C#) interface
+* see `c_sharp` folder.
+* It's important to ensure the built dll is copied to the folder test_cs.exe in! always copy the 64bit version dll!
+* It's ok to built a 32bit test_cs.exe and copy the 32bit dll, you can try.
