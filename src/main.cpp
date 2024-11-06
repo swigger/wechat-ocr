@@ -16,6 +16,29 @@ int APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserve
 	return TRUE;
 }
 
+static string json_encode(const string& input) {
+	string output;
+	output.reserve(input.size() + 2);
+	for (auto c : input) {
+		switch (c) {
+		case '"': output += "\\\"";	break;
+		case '\\': output += "\\\\"; break;
+		case '\n': output += "\\n"; break;
+		case '\r': output += "\\r";	break;
+		case '\t': output += "\\t";	break;
+		default:
+			if (c>=0 && c < 0x20) {
+				char buf[16];
+				snprintf(buf, sizeof(buf), "\\u%04x", c);
+				output += buf;
+			} else {
+				output.push_back(c);
+			}
+		}
+	}
+	return output;
+}
+
 extern "C" __declspec(dllexport)
 bool wechat_ocr(const wchar_t* ocr_exe, const wchar_t * wechat_dir, const char * imgfn, void(*set_res)(const char * dt))
 {
@@ -28,7 +51,7 @@ bool wechat_ocr(const wchar_t* ocr_exe, const wchar_t * wechat_dir, const char *
 	string json;
 	json += "{";
 	json += "\"errcode\":" + std::to_string(res.errcode) + ",";
-	json += "\"imgpath\":\"" + res.imgpath + "\",";
+	json += "\"imgpath\":\"" + json_encode(res.imgpath) + "\",";
 	json += "\"width\":" + std::to_string(res.width) + ",";
 	json += "\"height\":" + std::to_string(res.height) + ",";
 	json += "\"ocr_response\":[";
@@ -39,10 +62,10 @@ bool wechat_ocr(const wchar_t* ocr_exe, const wchar_t * wechat_dir, const char *
 		json += "\"right\":" + std::to_string(blk.right) + ",";
 		json += "\"bottom\":" + std::to_string(blk.bottom) + ",";
 		json += "\"rate\":" + std::to_string(blk.rate) + ",";
-		json += "\"text\":\"" + blk.text + "\"";
+		json += "\"text\":\"" + json_encode(blk.text) + "\"";
 		json += "},";
 	}
-	if (!res.ocr_response.empty()) {
+	if (json.back() == ',') {
 		json.pop_back();
 	}
 	json += "]}";

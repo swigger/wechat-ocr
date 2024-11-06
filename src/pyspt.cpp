@@ -2,7 +2,7 @@
 #include "pyspt.h"
 #include "wechatocr.h"
 
-#ifdef USE_PYTHON
+#if USE_PYTHON+0
 
 wstring utf8towstr(const char* utf8)
 {
