@@ -1,0 +1,44 @@
+syntax = "proto3";
+package wx4;
+import "ocr_common.proto";
+
+message OCRSupportMessage {
+	optional bool supported = 1;
+}
+
+message ReqType {
+	optional bool t1 = 1;
+	optional bool t2 = 2;
+	optional bool t3 = 3;
+}
+
+message ParseOCRReqMessage {
+	optional uint64 task_id = 1;
+	optional string pic_path = 2;
+	optional uint32 xx3 = 3;
+	optional uint32 xx4 = 4;
+	optional bytes pic_data = 5;
+	optional ReqType rt = 6;
+}
+
+message OCRResultInfo {
+	repeated ocr_common.OCRResultLine lines = 3;
+	optional uint32 img_width = 4;
+	optional uint32 img_height = 5;
+	optional string cpu_report = 6;
+	optional uint64 time_used = 7;
+}
+
+message QRResultInfo {
+}
+message MMFGResultInfo {
+}
+
+message ParseOCRRespMessage {
+	optional uint64 task_id = 1;
+	optional int32 err_code = 2;
+	optional OCRResultInfo res = 3;
+	optional ReqType rt = 4;
+	optional bytes qrcode = 5; // ¶þÎ¬ÂëÊ¶±ð
+	optional bytes mmfg = 6; // what is mmfg?
+}

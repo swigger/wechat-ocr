@@ -27,7 +27,13 @@
     <ClCompile Include="..\src\wechatocr.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\ocr_protobuf.pb.cc">
+    <ClCompile Include="..\src\ocr_wx4.pb.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ocr_wx3.pb.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ocr_common.pb.cc">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,21 +50,33 @@
     <ClInclude Include="..\src\wechatocr.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\ocr_protobuf.pb.h">
+    <ClInclude Include="..\src\mmmojo.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mmmojo.h">
+    <ClInclude Include="..\src\ocr_wx4.pb.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ocr_wx3.pb.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ocr_common.pb.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\pb\ocr_protobuf.proto">
+    <None Include="..\pb\ocr_wx3.proto">
       <Filter>pb</Filter>
     </None>
     <None Include="..\pb\player_protobuf.proto">
       <Filter>pb</Filter>
     </None>
     <None Include="..\pb\utility_protobuf.proto">
+      <Filter>pb</Filter>
+    </None>
+    <None Include="..\pb\ocr_wx4.proto">
+      <Filter>pb</Filter>
+    </None>
+    <None Include="..\pb\ocr_common.proto">
       <Filter>pb</Filter>
     </None>
   </ItemGroup>

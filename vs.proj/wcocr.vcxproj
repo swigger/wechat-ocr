@@ -213,11 +213,23 @@
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\mojocall.cpp" />
-    <ClCompile Include="..\src\ocr_protobuf.pb.cc">
+    <ClCompile Include="..\src\ocr_common.pb.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/wd4267 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/wd4267 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\src\ocr_wx3.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/wd4267 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/wd4267 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\src\ocr_wx4.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/wd4267 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/wd4267 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClCompile Include="..\src\pyspt.cpp" />
     <ClCompile Include="..\src\wechatocr.cpp" />
@@ -228,13 +240,17 @@
   <ItemGroup>
     <ClInclude Include="..\src\mmmojo.h" />
     <ClInclude Include="..\src\mojocall.h" />
-    <ClInclude Include="..\src\ocr_protobuf.pb.h" />
+    <ClInclude Include="..\src\ocr_common.pb.h" />
+    <ClInclude Include="..\src\ocr_wx3.pb.h" />
+    <ClInclude Include="..\src\ocr_wx4.pb.h" />
     <ClInclude Include="..\src\pyspt.h" />
     <ClInclude Include="..\src\wechatocr.h" />
     <ClInclude Include="..\vs.proj\stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\pb\ocr_protobuf.proto" />
+    <None Include="..\pb\ocr_common.proto" />
+    <None Include="..\pb\ocr_wx3.proto" />
+    <None Include="..\pb\ocr_wx4.proto" />
     <None Include="..\pb\player_protobuf.proto" />
     <None Include="..\pb\utility_protobuf.proto" />
   </ItemGroup>

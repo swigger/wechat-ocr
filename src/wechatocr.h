@@ -15,11 +15,11 @@ public:
 		int width, height;
 		std::vector<text_block_t> ocr_response;
 	};
+	static constexpr int STATE_INITED = 2; // extend state vars from base class.
 protected:
-	std::wstring m_exe, m_wcdir;
+	int m_version = 300; // wechat version 3.x
 	std::mutex m_mutex;
-	std::condition_variable m_cv_state, m_cv_idpath;
-	enum state_t { STATE_INVALID, STATE_PENDING, STATE_VALID } m_state = STATE_INVALID;
+	std::condition_variable m_cv_idpath;
 	std::map<uint64_t, std::pair<string, result_t*>> m_idpath;
 
 public:

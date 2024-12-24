@@ -6,9 +6,16 @@ namespace mmmojo
 	//每一个组件的每一个请求都有一个自己的RequestId 组件会根据请求ID进行对应的操作
 
 	//WeChatOCR组件
-	enum RequestIdOCR
+	enum RequestIdOCR3
 	{
-		OCRPush = 1
+		OCRPush = 1,
+	};
+	enum RequestIdOCR4
+	{
+		HAND_SHAKE = 10001,
+		REQ_OCR = 10010,
+		RESP_OCR = 10011,
+		PUT_UserInfoMessage = 20012,
 	};
 
 	//WeChatUtility组件
@@ -70,13 +77,17 @@ namespace mmmojo
 
 class CMojoCall
 {
+public:
+	static constexpr int MJC_FAILED = -1;
+	static constexpr int MJC_PENDING = 0;
+	static constexpr int MJC_CONNECTED = 1;
+
 protected:
 	HMODULE m_mod = NULL;
 	void* m_env = 0;
-	// is the exe started and connected?
-	bool m_connected = false;
-	std::mutex m_mutex_conn; // mutex for conn.
-	std::condition_variable m_cv_conn;
+	int m_state = MJC_PENDING;
+	std::mutex m_mutex_state; // mutex for conn.
+	std::condition_variable m_cv_state;
 
 	/**
 	 * @brief 对应Chromium源码中的base::CommandLine->AppendSwitchNative方法 用于添加一个'开关(Switch)'.
@@ -101,8 +112,25 @@ protected:
 	virtual void OnRemoteConnect(bool is_connected);
 	virtual void OnRemoteDisConnect();
 	virtual void OnRemoteProcessLaunched() {}
-	virtual void OnRemoteProcessLaunchFailed(int error_code) {}
+	virtual void OnRemoteProcessLaunchFailed(int error_code);
 	virtual void OnRemoteError(const void* errorbuf, int errorsize) {
-		fprintf(stderr, "OnRemoteError: %s\n", (const char*)errorbuf);
+		fprintf(stderr, "OnRemoteError: %.*s\n", errorsize, (const char*)errorbuf);
 	}
 };
+
+namespace util
+{
+	template <class T, class FT>
+	requires std::is_pointer_v<FT>&& std::is_function_v<typename std::remove_pointer<FT>::type> && (std::is_pointer_v<T> || std::is_integral_v<T>)
+	struct auto_del_t {
+		T object;
+		FT caller;
+
+		auto_del_t(T obj, FT call) : object(obj), caller(call) {}
+		~auto_del_t() { if (caller) caller(object); }
+		auto_del_t(const auto_del_t&) = delete;
+		auto_del_t& operator=(const auto_del_t&) = delete;
+		auto_del_t(auto_del_t &&) noexcept = delete;
+		auto_del_t& operator=(auto_del_t&&) noexcept = delete;
+	};
+}

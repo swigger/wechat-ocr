@@ -2,6 +2,12 @@
 #include "mojocall.h"
 #include "mmmojo.h"
 
+#ifdef _DEBUG
+#define DBG_PRINT(fmt, ...) fprintf(stderr, "[DEBUG]" fmt, __VA_ARGS__)
+#else
+#define DBG_PRINT(fmt, ...)
+#endif
+
 CMojoCall::~CMojoCall()
 {
 	Stop();
@@ -46,30 +52,38 @@ bool CMojoCall::Start(LPCWSTR exepath)
 		//设置回调函数
 		SetMMMojoEnvironmentCallbacks(env, MMMojoEnvironmentCallbackType::kMMUserData, this);
 		void (*ReadOnPush)(uint32_t request_id, const void* request_info, void* user_data) = [](uint32_t request_id, const void* request_info, void* user_data) {
+			DBG_PRINT("ReadOnPush: %u\n", request_id);
 			return ((CMojoCall*)user_data)->ReadOnPush(request_id, request_info);
-			};
+		};
 		void (*ReadOnPull)(uint32_t request_id, const void* request_info, void* user_data) = [](uint32_t request_id, const void* request_info, void* user_data) {
+			DBG_PRINT("ReadOnPull: %u\n", request_id);
 			return ((CMojoCall*)user_data)->ReadOnPull(request_id, request_info);
-			};
+		};
 		void (*ReadOnShared)(uint32_t request_id, const void* request_info, void* user_data) = [](uint32_t request_id, const void* request_info, void* user_data) {
+			DBG_PRINT("ReadOnShared: %u\n", request_id);
 			return ((CMojoCall*)user_data)->ReadOnShared(request_id, request_info);
-			};
+		};
 
 		void (*OnConnect)(bool is_connected, void* user_data) = [](bool is_connected, void* user_data) {
+			DBG_PRINT("OnConnect: %d\n", is_connected);
 			return ((CMojoCall*)user_data)->OnRemoteConnect(is_connected);
-			};
+		};
 		void (*OnDisConnect)(void* user_data) = [](void* user_data) {
+			DBG_PRINT("OnDisConnect\n");
 			return ((CMojoCall*)user_data)->OnRemoteDisConnect();
-			};
+		};
 		void (*OnProcessLaunched)(void* user_data) = [](void* user_data) {
+			DBG_PRINT("OnProcessLaunched\n");
 			return ((CMojoCall*)user_data)->OnRemoteProcessLaunched();
-			};
+		};
 		void (*OnProcessLaunchFailed)(int error_code, void* user_data) = [](int error_code, void* user_data) {
+			DBG_PRINT("OnProcessLaunchFailed: %d\n", error_code);
 			return ((CMojoCall*)user_data)->OnRemoteProcessLaunchFailed(error_code);
-			};
+		};
 		void (*OnError)(const void* errorbuf, int errorsize, void* user_data) = [](const void* errorbuf, int errorsize, void* user_data) {
+			DBG_PRINT("OnError: %.*s\n", errorsize, (const char*)errorbuf);
 			return ((CMojoCall*)user_data)->OnRemoteError(errorbuf, errorsize);
-			};
+		};
 
 		SetMMMojoEnvironmentCallbacks(env, MMMojoEnvironmentCallbackType::kMMReadPush, ReadOnPush);
 		SetMMMojoEnvironmentCallbacks(env, MMMojoEnvironmentCallbackType::kMMReadPull, ReadOnPull);
@@ -123,30 +137,39 @@ bool CMojoCall::SendPbSerializedData(const void* pb_data, size_t data_size, int 
 
 void CMojoCall::OnRemoteConnect(bool is_connected)
 {
-	std::lock_guard<std::mutex> lock(m_mutex_conn);
-	m_connected = is_connected;
-	m_cv_conn.notify_all();
+	std::lock_guard<std::mutex> lock(m_mutex_state);
+	m_state = is_connected ? MJC_CONNECTED : MJC_FAILED;
+	m_cv_state.notify_all();
 }
 
 void CMojoCall::OnRemoteDisConnect() {
-	std::lock_guard<std::mutex> lock(m_mutex_conn);
-	m_connected = false;
-	m_cv_conn.notify_all();
+	std::lock_guard<std::mutex> lock(m_mutex_state);
+	m_state = MJC_FAILED;
+	m_cv_state.notify_all();
 }
 
 bool CMojoCall::wait_connection(int timeout)
 {
 	if (timeout < 0) {
-		std::unique_lock<std::mutex> lock(m_mutex_conn);
-		m_cv_conn.wait(lock, [this] {return m_connected; });
+		std::unique_lock<std::mutex> lock(m_mutex_state);
+		m_cv_state.wait(lock, [this] {return m_state != MJC_PENDING; });
 	}
 	else
 	{
-		std::unique_lock<std::mutex> lock(m_mutex_conn);
-		if (!m_cv_conn.wait_for(lock, std::chrono::milliseconds(timeout), [this] {return m_connected; }))
+		std::unique_lock<std::mutex> lock(m_mutex_state);
+		if (!m_cv_state.wait_for(lock, std::chrono::milliseconds(timeout), [this] {return m_state != MJC_PENDING; }))
 		{
 			return false;
 		}
 	}
-	return m_connected;
+	return m_state >= MJC_CONNECTED;
+}
+
+void CMojoCall::OnRemoteProcessLaunchFailed(int error_code)
+{
+	std::lock_guard<std::mutex> lock(m_mutex_state);
+	if (m_state == MJC_PENDING) {
+		m_state = MJC_FAILED;
+		m_cv_state.notify_all();
+	}
 }

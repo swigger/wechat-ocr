@@ -47,7 +47,8 @@ bool wechat_ocr(const wchar_t* ocr_exe, const wchar_t * wechat_dir, const char *
 		return false;
 	}
 	CWeChatOCR::result_t res;
-	wechat_ocr.doOCR(imgfn, &res);
+	if (!wechat_ocr.doOCR(imgfn, &res))
+		return false;
 	string json;
 	json += "{";
 	json += "\"errcode\":" + std::to_string(res.errcode) + ",";
@@ -95,10 +96,12 @@ HRESULT DllRegisterServer(void)
 
 	CWeChatOCR wechat_ocr(_wgetenv(L"WECHATOCR_EXE"), _wgetenv(L"WECHAT_DIR"));
 	if (!wechat_ocr.wait_connection(5000)) {
+		fprintf(stderr, "wechat_ocr.wait_connection failed\n");
 		return E_FAIL;
 	}
 	wechat_ocr.doOCR(getenv("TEST_PNG"), nullptr);
 	wechat_ocr.wait_done(-1);
+	fprintf(stderr, "debug play ocr DONE!\n");
 	return S_OK;
 }
 #endif

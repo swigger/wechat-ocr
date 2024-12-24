@@ -18,7 +18,7 @@ public class Test {
     public static void main(String [] args) {
         System.out.println("ocr begin...");
         String ocr_exe = "C:\\Users\\xungeng\\AppData\\Roaming\\Tencent\\WeChat\\XPlugin\\Plugins\\WeChatOCR\\7079\\extracted\\WeChatOCR.exe";
-        String wechat_dir = "C:\\Program Files (x86)\\Tencent\\WeChat\\[3.9.10.19]";
+        String wechat_dir = "C:\\Program Files\\Tencent\\Weixin\\4.0.0.26";
         String tstpng = "test.png";
         AtomicReference<String> result = new AtomicReference<>();
         WechatOCR.dll.wechat_ocr(new WString(ocr_exe), new WString(wechat_dir), tstpng, new WechatOCR.SetResCallback() {

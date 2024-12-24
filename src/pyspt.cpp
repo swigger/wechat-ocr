@@ -56,7 +56,7 @@ static PyObject* py_ocr(PyObject* self, PyObject* args) {
 		return NULL;
 	}
 
-	CWeChatOCR::result_t res;
+	CWeChatOCR::result_t res{};
 	if (!g_ocr_obj->doOCR(imgpath, &res)) {
 		PyErr_SetString(PyExc_RuntimeError, "wechatocr doOCR failed");
 		return NULL;

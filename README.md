@@ -1,23 +1,48 @@
 # wcocr: demonstrate how to use WeChatOCR.exe
 
 Great thanks to IEEE by his [Project IEEE/QQImpl](https://github.com/EEEEhex/qqimpl)] and [article](https://bbs.kanxue.com/thread-278161.htm).
-This project is based on it. 
+This project is based on it and reduced the product size by using `protobuf-lite` instead of `protobuf`.
 
-This project reduced the product size by using `protobuf-lite` instead of `protobuf`, 
-and provided a direct Python interface for calling in sync mode.
+This project provided a direct Python interface for calling in sync mode as well as other languages support including but not limited with c++/java/c#.
 
-To use this project, you need to prepare the `wechatocr.exe` and the wechat folder.
-For example, `wechatocr.exe` might be:
+# Prepare for usage
+
+To work with this project, you need to prepare the wechat OCR binary and the wechat runtime folder.
+
+For wechat 3.x, the wechat OCR binary is `wechatocr.exe`, it might be:
 
 ```
 C:\Users\yourname\AppData\Roaming\Tencent\WeChat\XPlugin\Plugins\WeChatOCR\7061\extracted\WeChatOCR.exe
 ```
-and the wechat folder might be:
+and the wechat runtime folder might be:
 ```
 C:\Program Files (x86)\Tencent\WeChat\[3.9.8.25]
 ```
 
+**Wechat 4.0 is now supported!**
+
+For wechat 4.0, the wechat OCR binary is `wxocr.dll`, it might be:
+
+```
+C:\Users\yourname\AppData\Roaming\Tencent\xwechat\XPlugin\plugins\WeChatOcr\8011\extracted\wxocr.dll
+```
+
+and the wechat runtime folder might be:
+
+```
+C:\Program Files\Tencent\Weixin\4.0.0.26
+```
+
+## Warning
+
+Wechat 4.0 OCR binary is `wxocr.dll`, but this project built a dll named `wcocr.dll`
+
+**Their names are similar, DO NOT confuse them.**
+
+
+
 ## C++ interface
+
 You can use the following code to test it:
 ```cpp
 CWeChatOCR ocr(wechatocr_path, wechat_path);

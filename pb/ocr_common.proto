@@ -1,0 +1,32 @@
+syntax = "proto3";
+package ocr_common;
+
+message Point{
+	optional float x = 1;
+	optional float y = 2;
+}
+
+message Box{
+	optional Point topleft = 1;
+	optional Point topright = 2;
+	optional Point bottomright = 3;
+	optional Point bottomleft = 4;
+}
+
+message OCRResultChar{
+	optional Box char_box = 1;
+	optional string chars = 2;
+}
+
+message OCRResultLine {
+	Box line_box = 1;
+	string text = 2;				//UTF8格式的字符串
+	float rate = 3;					//单行的识别率
+	repeated OCRResultChar blocks = 4;
+	float left = 5;					//识别矩形的left\top\right\bottom的坐标
+	float top = 6;
+	float right = 7;
+	float bottom = 8;
+	optional bool unknown_0 = 9;	//未知
+	optional Box box10 = 10;		//未知
+}
