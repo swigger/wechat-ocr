@@ -228,7 +228,11 @@ void CWeChatOCR::ReadOnPush(uint32_t request_id, const void* request_info)
 			wx4::OCRSupportMessage msg;
 			if (!msg.ParseFromArray(pb_data, pb_size))
 				return;
-			init_done(msg.has_supported() && msg.supported());
+			bool supported = msg.has_supported() && msg.supported();
+			if (!supported) {
+				fprintf(stderr, "OCR4: OCR not supported\n");
+			}
+			init_done(supported);
 		}
 		else if (request_id == mmmojo::RequestIdOCR4::RESP_OCR) {
 			wx4::ParseOCRRespMessage resp;
@@ -248,7 +252,11 @@ void CWeChatOCR::ReadOnPush(uint32_t request_id, const void* request_info)
 			resp.ParseFromArray(pb_data, pb_size);
 			switch (resp.type()) {
 			case 1: // init response, with taskid=1, ec=0
-				init_done(resp.err_code() == 0);
+				do {
+					auto ec = resp.err_code();
+					if (ec != 0) fprintf(stderr, "WX3: init failed, ec=%d\n", ec);
+					init_done(ec == 0);
+				} while (0);
 				break;
 			case 0:
 				if (resp.has_ocr_result()) {
