@@ -42,12 +42,17 @@ static string json_encode(const string& input) {
 extern "C" __declspec(dllexport)
 bool wechat_ocr(const wchar_t* ocr_exe, const wchar_t * wechat_dir, const char * imgfn, void(*set_res)(const char * dt))
 {
-	CWeChatOCR wechat_ocr(ocr_exe, wechat_dir);
-	if (!wechat_ocr.wait_connection(5000)) {
-		return false;
+	static std::unique_ptr<CWeChatOCR> instance;
+	if (!instance) {
+		auto ocr = std::make_unique<CWeChatOCR>(ocr_exe, wechat_dir);
+		if (!ocr->wait_connection(5000)) {
+			return false;
+		}
+		instance = std::move(ocr);
 	}
+
 	CWeChatOCR::result_t res;
-	if (!wechat_ocr.doOCR(imgfn, &res))
+	if (!instance->doOCR(imgfn, &res))
 		return false;
 	string json;
 	json += "{";
