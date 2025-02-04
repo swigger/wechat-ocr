@@ -39,20 +39,21 @@ static string json_encode(const string& input) {
 	return output;
 }
 
+static std::unique_ptr<CWeChatOCR> g_instance;
+
 extern "C" __declspec(dllexport)
 bool wechat_ocr(const wchar_t* ocr_exe, const wchar_t * wechat_dir, const char * imgfn, void(*set_res)(const char * dt))
 {
-	static std::unique_ptr<CWeChatOCR> instance;
-	if (!instance) {
+	if (!g_instance) {
 		auto ocr = std::make_unique<CWeChatOCR>(ocr_exe, wechat_dir);
 		if (!ocr->wait_connection(5000)) {
 			return false;
 		}
-		instance = std::move(ocr);
+		g_instance = std::move(ocr);
 	}
 
 	CWeChatOCR::result_t res;
-	if (!instance->doOCR(imgfn, &res))
+	if (!g_instance->doOCR(imgfn, &res))
 		return false;
 	string json;
 	json += "{";
@@ -79,6 +80,11 @@ bool wechat_ocr(const wchar_t* ocr_exe, const wchar_t * wechat_dir, const char *
 		set_res(json.c_str());
 	}
 	return true;
+}
+
+extern "C" __declspec(dllexport)
+void stop_ocr() {
+	g_instance.reset();
 }
 
 #ifdef _DEBUG

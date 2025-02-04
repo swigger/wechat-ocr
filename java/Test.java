@@ -14,11 +14,12 @@ public class Test {
             void callback(String arg);
         }
         boolean wechat_ocr(WString ocr_exe, WString wechat_dir, String imgfn, SetResCallback res);
+        void stop_ocr();
     }
     public static void main(String [] args) {
         System.out.println("ocr begin...");
-        String ocr_exe = "C:\\Users\\xungeng\\AppData\\Roaming\\Tencent\\WeChat\\XPlugin\\Plugins\\WeChatOCR\\7079\\extracted\\WeChatOCR.exe";
-        String wechat_dir = "C:\\Program Files\\Tencent\\Weixin\\4.0.0.26";
+        String ocr_exe = "C:\\Users\\xungeng\\AppData\\Roaming\\Tencent\\xwechat\\XPlugin\\plugins\\WeChatOcr\\8020\\extracted\\wxocr.dll";
+        String wechat_dir = "C:\\Program Files\\Tencent\\Weixin\\4.0.2.13";
         String tstpng = "test.png";
         AtomicReference<String> result = new AtomicReference<>();
         WechatOCR.dll.wechat_ocr(new WString(ocr_exe), new WString(wechat_dir), tstpng, new WechatOCR.SetResCallback() {
@@ -28,5 +29,6 @@ public class Test {
         });
         System.out.println("OCR result: " + result.get());
         System.out.println("ocr end...");
+        WechatOCR.dll.stop_ocr();
     }
 }

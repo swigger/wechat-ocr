@@ -12,6 +12,8 @@ class Program
         [MarshalAs(UnmanagedType.LPWStr)] string wechat_dir,
         [MarshalAs(UnmanagedType.LPStr)] string imgfn,
         SetResultDelegate set_res);
+    [DllImport("wcocr.dll", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void stop_ocr();
 
     // 定义委托类型
     public delegate void SetResultDelegate(IntPtr result);
@@ -45,5 +47,6 @@ class Program
         SetResultDelegate setRes = new SetResultDelegate(stringResult.SetResult);
         bool success = wechat_ocr(args[0], args[1], args[2], setRes);
         Console.WriteLine($"OCR Success: {success} res:{stringResult.GetResult()}");
+        stop_ocr();
     }
 }
