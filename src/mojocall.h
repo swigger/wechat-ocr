@@ -1,5 +1,30 @@
 ﻿#pragma once
-#include <mutex>
+#include "mmmojo.h"
+
+#ifdef _WIN32
+typedef std::wstring tstring;
+#else
+typedef const char* LPCTSTR;
+typedef void* HMODULE;
+typedef std::string tstring;
+#endif
+
+#ifndef EXPORTED_API
+# ifdef _WIN32
+#  define EXPORTED_API __declspec(dllexport)
+#  pragma warning(disable : 4251)
+# else
+#  define EXPORTED_API
+# endif
+#endif
+
+#ifndef WIN_POSIX
+# ifdef _WIN32
+#  define WIN_POSIX(a,b) a
+# else
+#  define WIN_POSIX(a,b) b
+# endif
+#endif
 
 namespace mmmojo
 {
@@ -75,7 +100,7 @@ namespace mmmojo
 	};
 }
 
-class CMojoCall
+class EXPORTED_API CMojoCall
 {
 public:
 	static constexpr int MJC_FAILED = -1;
@@ -84,6 +109,7 @@ public:
 
 protected:
 	HMODULE m_mod = NULL;
+	bool m_should_free_mod = false;
 	void* m_env = 0;
 	int m_state = MJC_PENDING;
 	std::mutex m_mutex_state; // mutex for conn.
@@ -93,22 +119,22 @@ protected:
 	 * @brief 对应Chromium源码中的base::CommandLine->AppendSwitchNative方法 用于添加一个'开关(Switch)'.
 	 * 例如 "user-lib-dir" => X:\Foo 这样会在命令行参数添加一个"--user-lib-dir=X:\Foo"
 	 */
-	std::map<string, wstring> m_args;
+	std::map<string, tstring> m_args;
 
 protected:
-	CMojoCall() = default;
+	CMojoCall();
 	virtual ~CMojoCall();
 
-	bool Init(LPCWSTR dir);
-	bool Start(LPCWSTR exepath);
+	bool Init(LPCTSTR dir);
+	bool Start(LPCTSTR exepath);
 	void Stop();
 	virtual bool wait_connection(int timeout);
 	bool SendPbSerializedData(const void* pb_data, size_t data_size, int method, bool sync, uint32_t request_id);
 
 	//call backs.
-	virtual void ReadOnPush(uint32_t request_id, const void* request_info) {}
-	virtual void ReadOnPull(uint32_t request_id, const void* request_info) {}
-	virtual void ReadOnShared(uint32_t request_id, const void* request_info) {}
+	virtual void ReadOnPush(uint32_t request_id, std::span<std::byte> request_info) {}
+	virtual void ReadOnPull(uint32_t request_id, std::span<std::byte> request_info) {}
+	virtual void ReadOnShared(uint32_t request_id, std::span<std::byte> request_info) {}
 	virtual void OnRemoteConnect(bool is_connected);
 	virtual void OnRemoteDisConnect();
 	virtual void OnRemoteProcessLaunched() {}
@@ -133,4 +159,20 @@ namespace util
 		auto_del_t(auto_del_t &&) noexcept = delete;
 		auto_del_t& operator=(auto_del_t&&) noexcept = delete;
 	};
+
+	inline tstring to_tstr(const char* src, bool isutf8=true)
+	{
+#ifdef _WIN32
+		int cp = isutf8 ? CP_UTF8 : CP_ACP;
+		int len = MultiByteToWideChar(cp, 0, src, -1, NULL, 0);
+		wstring ret;
+		if (len > 0) {
+			ret.resize(len);
+			MultiByteToWideChar(cp, 0, src, -1, &ret[0], len);
+		}
+		return ret;
+#else
+		return src;
+#endif
+	}
 }

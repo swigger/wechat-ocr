@@ -16,3 +16,7 @@
 Properties/
 bin/
 obj/
+
+compile_commands.json
+build*/
+.cache/

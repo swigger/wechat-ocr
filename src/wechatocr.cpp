@@ -2,8 +2,9 @@
 #include "wechatocr.h"
 #include "ocr_wx3.pb.h"
 #include "ocr_wx4.pb.h"
-#include "mmmojo.h"
 #include <filesystem>
+
+namespace fs = std::filesystem;
 
 namespace {
 	bool is_text_utf8(const char* sin, size_t len) {
@@ -34,34 +35,27 @@ namespace {
 	}
 }
 
-CWeChatOCR::CWeChatOCR(LPCWSTR exe0, LPCWSTR wcdir0)
+CWeChatOCR::CWeChatOCR(LPCTSTR exe0, LPCTSTR wcdir0)
 {
-	std::wstring exe = exe0;
-	std::wstring wcdir = wcdir0;
+	tstring exe = exe0;
+	tstring wcdir = wcdir0;
+#ifdef _WIN32
 	// convert / to '\\'
 	std::replace(wcdir.begin(), wcdir.end(), L'/', L'\\');
 	std::replace(exe.begin(), exe.end(), L'/', L'\\');
-
-	DWORD attr1 = GetFileAttributesW(exe.c_str());
-	if (attr1 == INVALID_FILE_ATTRIBUTES || (attr1 & FILE_ATTRIBUTE_DIRECTORY) != 0)
-	{
-		// 传入的ocr.exe路径无效
-		m_state = MJC_FAILED;
-		return;
-	}
-	DWORD attr2 = GetFileAttributesW(wcdir.c_str());
-	if (attr2 == INVALID_FILE_ATTRIBUTES || (attr2 & FILE_ATTRIBUTE_DIRECTORY) == 0)
-	{
-		// 传入的微信目录无效
+#endif
+	if (!fs::is_regular_file(exe) || !fs::is_directory(wcdir)) {
+		// 传入的ocr.exe / wcdir 路径无效
 		m_state = MJC_FAILED;
 		return;
 	}
 
 	if (Init(wcdir.c_str()))
 	{
+		m_args["no-sandbox"] = WIN_POSIX(L"", "");
+
+#ifdef _WIN32
 		m_args["user-lib-dir"] = wcdir;
-		m_args["no-sandbox"] = L"";
-		
 		// 测试 wc4.0, 改成 dll了
 		auto fn_ext = exe.substr(exe.size() - 4);
 		if (wcsicmp(fn_ext.c_str(), L".dll") == 0) {
@@ -69,8 +63,8 @@ CWeChatOCR::CWeChatOCR(LPCWSTR exe0, LPCWSTR wcdir0)
 			if (exe2.back() != '\\') exe2.push_back('\\');
 			exe2 += L"..\\weixin.exe";
 			auto sep_pos = exe.rfind('\\');
-			std::wstring app_path = exe.substr(0, sep_pos);
-			std::wstring app_name = exe.substr(sep_pos + 1);
+			tstring app_path = exe.substr(0, sep_pos);
+			tstring app_name = exe.substr(sep_pos + 1);
 			if (size_t dot_pos = app_name.rfind('.'); dot_pos != std::wstring::npos) {
 				app_name.resize(dot_pos);
 			}
@@ -79,6 +73,9 @@ CWeChatOCR::CWeChatOCR(LPCWSTR exe0, LPCWSTR wcdir0)
 			exe = std::move(exe2);
 			m_version = 400;
 		}
+#else
+		m_version = 400;  // Linux 强制使用 4.0 版本
+#endif
 		if (!Start(exe.c_str()))
 		{
 			std::lock_guard<std::mutex> lock(m_mutex_state);
@@ -97,7 +94,10 @@ bool CWeChatOCR::doOCR(crefstr imgpath0, result_t* res)
 	// wx4 中，图片路径必须是绝对路径，否则会失败
 	string imgpath;
 #ifndef _WIN32
-	imgpath = imgpath0;
+	do {
+		auto u8s = std::filesystem::weakly_canonical(imgpath0).u8string();
+		imgpath = std::string(u8s.begin(), u8s.end());
+	} while(0);
 #else
 	do {
 		std::wstring wtmp;
@@ -172,10 +172,10 @@ bool CWeChatOCR::doOCR(crefstr imgpath0, result_t* res)
 	return bx;
 }
 
-void CWeChatOCR::ReadOnPush(uint32_t request_id, const void* request_info)
+void CWeChatOCR::ReadOnPush(uint32_t request_id, std::span<std::byte> request_info)
 {
-	util::auto_del_t delit(request_info, RemoveMMMojoReadInfo);
-
+	if (request_info.empty())
+		return;
 	auto init_done = [this](bool init_ok) {
 		std::lock_guard<std::mutex> lock(m_mutex_state);
 		if (m_state == MJC_PENDING || m_state == MJC_CONNECTED)
@@ -219,14 +219,11 @@ void CWeChatOCR::ReadOnPush(uint32_t request_id, const void* request_info)
 		m_cv_idpath.notify_all();
 	};
 
-	uint32_t pb_size = 0;
-	const void* pb_data = GetMMMojoReadInfoRequest(request_info, &pb_size);
-	if (!pb_data || !pb_size) return;
 	result_t res;
 	if (m_version >= 400) {
 		if (request_id == mmmojo::RequestIdOCR4::HAND_SHAKE) {
 			wx4::OCRSupportMessage msg;
-			if (!msg.ParseFromArray(pb_data, pb_size))
+			if (!msg.ParseFromArray(request_info.data(), (int)request_info.size()))
 				return;
 			bool supported = msg.has_supported() && msg.supported();
 			if (!supported) {
@@ -236,7 +233,7 @@ void CWeChatOCR::ReadOnPush(uint32_t request_id, const void* request_info)
 		}
 		else if (request_id == mmmojo::RequestIdOCR4::RESP_OCR) {
 			wx4::ParseOCRRespMessage resp;
-			if (!resp.ParseFromArray(pb_data, pb_size))
+			if (!resp.ParseFromArray(request_info.data(), (int)request_info.size()))
 				return;
 			if (resp.has_res()) {
 				ocr_copy(resp.res(), resp.err_code(), res);
@@ -249,7 +246,7 @@ void CWeChatOCR::ReadOnPush(uint32_t request_id, const void* request_info)
 	} else if (m_version >= 300) {
 		if (request_id == mmmojo::RequestIdOCR3::OCRPush) {
 			wx3::OcrRespond resp;
-			resp.ParseFromArray(pb_data, pb_size);
+			resp.ParseFromArray(request_info.data(), (int)request_info.size());
 			switch (resp.type()) {
 			case 1: // init response, with taskid=1, ec=0
 				do {

@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "mojocall.h"
 
-class CWeChatOCR : protected CMojoCall
+class EXPORTED_API CWeChatOCR : protected CMojoCall
 {
 public:
 	struct text_block_t {
@@ -23,7 +23,7 @@ protected:
 	std::map<uint64_t, std::pair<string, result_t*>> m_idpath;
 
 public:
-	CWeChatOCR(LPCWSTR exe, LPCWSTR wcdir);
+	CWeChatOCR(LPCTSTR exe, LPCTSTR wcdir);
 	~CWeChatOCR() = default;
 
 	int state() const { return m_state; }
@@ -33,5 +33,5 @@ public:
 
 protected:
 	virtual void OnOCRResult(result_t& ocr_response);
-	void ReadOnPush(uint32_t request_id, const void* request_info) override;
+	void ReadOnPush(uint32_t request_id, std::span<std::byte> request_info) override;
 };

@@ -211,6 +211,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\api.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\mojocall.cpp" />
     <ClCompile Include="..\src\ocr_common.pb.cc">

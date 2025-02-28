@@ -3,19 +3,6 @@
 #include "wechatocr.h"
 
 #if USE_PYTHON+0
-
-wstring utf8towstr(const char* utf8)
-{
-	int len = MultiByteToWideChar(CP_UTF8, 0, utf8, -1, NULL, 0);
-	wstring ret;
-	if (len > 0)
-	{
-		ret.resize(len);
-		MultiByteToWideChar(CP_UTF8, 0, utf8, -1, &ret[0], len);
-	}
-	return ret;
-}
-
 static CWeChatOCR* g_ocr_obj = 0;
 static PyObject* py_init(PyObject* self, PyObject* args)
 {
@@ -24,8 +11,8 @@ static PyObject* py_init(PyObject* self, PyObject* args)
 	if (!PyArg_ParseTuple(args, "ss", &exe, &wcdir))
 		return NULL;
 	if (!g_ocr_obj) {
-		wstring wexe = utf8towstr(exe);
-		wstring wwcdir = utf8towstr(wcdir);
+		tstring wexe = util::to_tstr(exe);
+		tstring wwcdir = util::to_tstr(wcdir);
 		auto obj = new CWeChatOCR(wexe.c_str(), wwcdir.c_str());
 		if (obj->wait_connection(5000)) {
 			g_ocr_obj = obj;
@@ -109,7 +96,7 @@ static PyObject* py_ocr(PyObject* self, PyObject* args) {
 	return dict;
 }
 
-extern "C" __declspec(dllexport)
+extern "C" EXPORTED_API
 PyObject* PyInit_wcocr(void)
 {
 	static PyMethodDef wcocr_methods[] = {

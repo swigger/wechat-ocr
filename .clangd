@@ -1,0 +1,5 @@
+CompileFlags:
+  Add:
+    - -D__INTELLISENSE__
+    - -D__CLANGD__
+    - -include stdafx.h

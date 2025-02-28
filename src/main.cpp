@@ -1,8 +1,48 @@
 ﻿#include "stdafx.h"
 #include "wechatocr.h"
-#include <google/protobuf/stubs/common.h>
+#include <locale.h>
 
-// dllmain
+#if defined(TEST_CLI)
+class CGotOCR : public CWeChatOCR
+{
+public:
+	CGotOCR(LPCTSTR exe, LPCTSTR wcdir)
+	    : CWeChatOCR(exe, wcdir)
+	{}
+	void OnOCRResult(result_t& ocr_response) override
+	{
+		printf("OCR errcode=%d\n", ocr_response.errcode);
+		for (auto& text : ocr_response.ocr_response) {
+			printf("[%.2f,%.2f,%.2f,%.2f] r=%.3f %s\n", text.left, text.top, text.right, text.bottom,
+			    text.rate, text.text.c_str());
+		}
+	}
+};
+
+int main(int argc, char* argv[])
+{
+#ifdef _WIN32
+	SetConsoleCP(CP_UTF8);
+	SetConsoleOutputCP(CP_UTF8);
+	setlocale(LC_ALL, "en_US.UTF-8");
+#endif
+	if (argc != 4) {
+		fprintf(stderr, "Usage: %s <wechatocr_exe> <wechat_dir> <test_png>\n", argv[0]);
+		return -1;
+	}
+
+	string msg;
+	CGotOCR ocr(util::to_tstr(argv[1]).c_str(), util::to_tstr(argv[2]).c_str());
+	if (!ocr.wait_connection(5000)) {
+		fprintf(stderr, "wechat_ocr.wait_connection failed\n");
+		return -1;
+	}
+	ocr.doOCR(argv[3], nullptr);
+	ocr.wait_done(-1);
+	fprintf(stderr, "debug play ocr DONE!\n");
+	return 0;
+}
+#elif defined(_WIN32)
 int APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
 {
 	switch (ul_reason_for_call)
@@ -16,78 +56,7 @@ int APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserve
 	return TRUE;
 }
 
-static string json_encode(const string& input) {
-	string output;
-	output.reserve(input.size() + 2);
-	for (auto c : input) {
-		switch (c) {
-		case '"': output += "\\\"";	break;
-		case '\\': output += "\\\\"; break;
-		case '\n': output += "\\n"; break;
-		case '\r': output += "\\r";	break;
-		case '\t': output += "\\t";	break;
-		default:
-			if (c>=0 && c < 0x20) {
-				char buf[16];
-				snprintf(buf, sizeof(buf), "\\u%04x", c);
-				output += buf;
-			} else {
-				output.push_back(c);
-			}
-		}
-	}
-	return output;
-}
-
-static std::unique_ptr<CWeChatOCR> g_instance;
-
-extern "C" __declspec(dllexport)
-bool wechat_ocr(const wchar_t* ocr_exe, const wchar_t * wechat_dir, const char * imgfn, void(*set_res)(const char * dt))
-{
-	if (!g_instance) {
-		auto ocr = std::make_unique<CWeChatOCR>(ocr_exe, wechat_dir);
-		if (!ocr->wait_connection(5000)) {
-			return false;
-		}
-		g_instance = std::move(ocr);
-	}
-
-	CWeChatOCR::result_t res;
-	if (!g_instance->doOCR(imgfn, &res))
-		return false;
-	string json;
-	json += "{";
-	json += "\"errcode\":" + std::to_string(res.errcode) + ",";
-	json += "\"imgpath\":\"" + json_encode(res.imgpath) + "\",";
-	json += "\"width\":" + std::to_string(res.width) + ",";
-	json += "\"height\":" + std::to_string(res.height) + ",";
-	json += "\"ocr_response\":[";
-	for (auto& blk : res.ocr_response) {
-		json += "{";
-		json += "\"left\":" + std::to_string(blk.left) + ",";
-		json += "\"top\":" + std::to_string(blk.top) + ",";
-		json += "\"right\":" + std::to_string(blk.right) + ",";
-		json += "\"bottom\":" + std::to_string(blk.bottom) + ",";
-		json += "\"rate\":" + std::to_string(blk.rate) + ",";
-		json += "\"text\":\"" + json_encode(blk.text) + "\"";
-		json += "},";
-	}
-	if (json.back() == ',') {
-		json.pop_back();
-	}
-	json += "]}";
-	if (set_res) {
-		set_res(json.c_str());
-	}
-	return true;
-}
-
-extern "C" __declspec(dllexport)
-void stop_ocr() {
-	g_instance.reset();
-}
-
-#ifdef _DEBUG
+# ifdef _DEBUG
 // 定义这个函数仅方便使用regsvr32.exe调试本DLL, 使用环境变量WECHATOCR_EXE和WECHAT_DIR以及TEST_PNG传入调试参数
 extern "C" __declspec(dllexport)
 HRESULT DllRegisterServer(void)
@@ -115,4 +84,5 @@ HRESULT DllRegisterServer(void)
 	fprintf(stderr, "debug play ocr DONE!\n");
 	return S_OK;
 }
+# endif
 #endif
