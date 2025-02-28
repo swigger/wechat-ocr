@@ -1,7 +1,5 @@
 *.o
 *.obj
-*.jpg
-*.png
 *.dll
 *.exp
 *.pdb

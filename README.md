@@ -35,11 +35,19 @@ C:\Program Files\Tencent\Weixin\4.0.0.26
 
 ## Warning
 
-Wechat 4.0 OCR binary is `wxocr.dll`, but this project built a dll named `wcocr.dll`
+WeChat 4.0 OCR binary is `wxocr.dll`, but this project built a DLL named `wcocr.dll`
 
 **Their names are similar, DO NOT confuse them.**
 
 
+
+# Linux is now supported
+
+![linux supported](doc/images/linux-spt.jpg)
+
+Typically, You should use `/opt/wechat/wxocr` as the OCR exe path and `/opt/wechat/` as the WeChat folder path.
+
+The other usages are similar to those on Windows.
 
 ## C++ interface
 
