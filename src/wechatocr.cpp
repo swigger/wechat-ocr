@@ -44,8 +44,12 @@ CWeChatOCR::CWeChatOCR(LPCTSTR exe0, LPCTSTR wcdir0)
 	std::replace(wcdir.begin(), wcdir.end(), L'/', L'\\');
 	std::replace(exe.begin(), exe.end(), L'/', L'\\');
 #endif
-	if (!fs::is_regular_file(exe) || !fs::is_directory(wcdir)) {
+	bool exe_ok = fs::is_regular_file(exe);
+	if (!exe_ok || !fs::is_directory(wcdir)) {
 		// 传入的ocr.exe / wcdir 路径无效
+		std::cerr << "Invalid path: " << (exe_ok ? wcdir : exe)
+		          << ", must be " << (exe_ok ? "a directory." : "an executable.")
+		          << std::endl;
 		m_state = MJC_FAILED;
 		return;
 	}

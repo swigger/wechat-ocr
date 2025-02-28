@@ -30,17 +30,19 @@ namespace midlevel
 	LAZY_FUNCTION(StopMMMojoEnvironment);
 	LAZY_FUNCTION(InitializeMMMojo);
 
-	template <class T>
-	bool init_func(HMODULE mod, T*& func, const char* name) {
+	template<class T>
+	bool init_func(HMODULE mod, T*& func, const char* name)
+	{
 #ifdef _WIN32
 		func = (T*)GetProcAddress(mod, name);
 #else
 		func = (T*)dlsym(mod, name);
 #endif
-		return !!func;	
+		return !!func;
 	}
 
-	static int init_funcs(HMODULE mod) {
+	static int init_funcs(HMODULE mod)
+	{
 		int failcnt = 0;
 #define INIT_LAZY_FUNCTION(x) failcnt += init_func(mod, x, #x) ? 0 : 1;
 		INIT_LAZY_FUNCTION(CreateMMMojoEnvironment);
@@ -211,19 +213,22 @@ namespace midlevel
 	};
 }  // namespace midlevel
 
-CMojoCall::CMojoCall(){
+CMojoCall::CMojoCall()
+{
 }
 
 CMojoCall::~CMojoCall()
 {
 	Stop();
-#ifdef _WIN32
 	if (m_mod && m_should_free_mod) {
+#ifdef _WIN32
 		FreeLibrary(m_mod);
+#else
+		dlclose(m_mod);
+#endif
 	}
 	m_mod = 0;
 	m_should_free_mod = false;
-#endif
 }
 
 bool CMojoCall::Init(LPCTSTR wcdir)
