@@ -224,7 +224,7 @@ CMojoCall::~CMojoCall()
 #ifdef _WIN32
 		FreeLibrary(m_mod);
 #else
-		dlclose(m_mod);
+		// dlclose(m_mod);
 #endif
 	}
 	m_mod = 0;
