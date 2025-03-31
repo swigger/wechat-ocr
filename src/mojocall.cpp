@@ -221,8 +221,12 @@ CMojoCall::~CMojoCall()
 {
 	Stop();
 	if (m_mod && m_should_free_mod) {
+		/* I really want to release the module here, unfortunately stopping mmmojo env does not stop the threads it created,
+		so free the module here will inevitably cause a crash. So I can only ignore it.
+		If you want to load different mmmojo modules, you may have to find another way. . .
+		*/
 #ifdef _WIN32
-		FreeLibrary(m_mod);
+		// FreeLibrary(m_mod);
 #else
 		// dlclose(m_mod);
 #endif

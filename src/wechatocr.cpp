@@ -47,9 +47,8 @@ CWeChatOCR::CWeChatOCR(LPCTSTR exe0, LPCTSTR wcdir0)
 	bool exe_ok = fs::is_regular_file(exe);
 	if (!exe_ok || !fs::is_directory(wcdir)) {
 		// 传入的ocr.exe / wcdir 路径无效
-		std::cerr << "Invalid path: " << (exe_ok ? wcdir : exe)
-		          << ", must be " << (exe_ok ? "a directory." : "an executable.")
-		          << std::endl;
+		util::fprintf(stderr, "Invalid path: %s, must be %s.\n", util::from_tstr(exe_ok ? wcdir : exe).c_str(),
+		    exe_ok ? "a directory." : "an executable.");
 		m_state = MJC_FAILED;
 		return;
 	}

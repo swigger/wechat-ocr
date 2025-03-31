@@ -146,21 +146,28 @@ protected:
 
 namespace util
 {
-	template <class T, class FT>
-	requires std::is_pointer_v<FT>&& std::is_function_v<typename std::remove_pointer<FT>::type> && (std::is_pointer_v<T> || std::is_integral_v<T>)
-	struct auto_del_t {
+	template<class T, class FT>
+	    requires std::is_pointer_v<FT> && std::is_function_v<typename std::remove_pointer<FT>::type> && (std::is_pointer_v<T> || std::is_integral_v<T>)
+	struct auto_del_t
+	{
 		T object;
 		FT caller;
 
-		auto_del_t(T obj, FT call) : object(obj), caller(call) {}
-		~auto_del_t() { if (caller) caller(object); }
+		auto_del_t(T obj, FT call)
+		    : object(obj)
+		    , caller(call)
+		{}
+		~auto_del_t()
+		{
+			if (caller) caller(object);
+		}
 		auto_del_t(const auto_del_t&) = delete;
 		auto_del_t& operator=(const auto_del_t&) = delete;
-		auto_del_t(auto_del_t &&) noexcept = delete;
+		auto_del_t(auto_del_t&&) noexcept = delete;
 		auto_del_t& operator=(auto_del_t&&) noexcept = delete;
 	};
 
-	inline tstring to_tstr(const char* src, bool isutf8=true)
+	inline tstring to_tstr(const char* src, bool isutf8 = true)
 	{
 #ifdef _WIN32
 		int cp = isutf8 ? CP_UTF8 : CP_ACP;
@@ -175,4 +182,68 @@ namespace util
 		return src;
 #endif
 	}
-}
+	inline string from_tstr(const tstring& src, bool isutf8 = true)
+	{
+#ifdef _WIN32
+		int cp = isutf8 ? CP_UTF8 : CP_ACP;
+		int len = WideCharToMultiByte(cp, 0, src.c_str(), -1, NULL, 0, NULL, NULL);
+		string ret;
+		if (len > 0) {
+			ret.reserve(len + 2);
+			ret.resize(len);
+			WideCharToMultiByte(cp, 0, src.c_str(), -1, &ret[0], len, NULL, NULL);
+		}
+		return ret;
+#else
+		return src;
+#endif
+	}
+	inline int f_write(FILE* fp, const void* data, int size){
+#ifdef _WIN32
+		if (size < 0) return -1;
+		if (size == 0) return 0;
+		DWORD cp = GetConsoleOutputCP();
+		if (cp == CP_UTF8) {
+			return (int) ::fwrite(data, 1, size, fp);
+		} else {
+			int len = MultiByteToWideChar(CP_UTF8, 0, (const char*)data, (int)size, NULL, 0);
+			if (len > 0) {
+				std::vector<wchar_t> wbuf(len + 1);
+				MultiByteToWideChar(CP_UTF8, 0, (const char*)data, (int)size, wbuf.data(), len);
+				int len2 = WideCharToMultiByte(cp, 0, wbuf.data(), len, NULL, 0, NULL, NULL);
+				if (len2 > 0) {
+					std::vector<char> buf(len2 + 1);
+					WideCharToMultiByte(cp, 0, wbuf.data(), len, buf.data(), len2, NULL, NULL);
+					return (int)::fwrite(buf.data(), 1, len2, fp);
+				}
+			}
+			return -1;
+		}
+#else
+		return (int)::fwrite(data, 1, size, fp);
+#endif
+	}
+	inline int vfprintf(FILE* fp, const char* fmt, va_list ap) {
+		va_list ap2;
+		va_copy(ap2, ap);
+		char buf[1024];
+		int len = vsnprintf(buf, sizeof(buf), fmt, ap);
+		int ret;
+		if (len >= 1024) {
+			std::vector<char> vbuf(len + 1);
+			vsnprintf(vbuf.data(), len + 1, fmt, ap2);
+			ret = f_write(fp, vbuf.data(), len);
+		} else {
+			ret = f_write(fp, buf, len);
+		}
+		va_end(ap2);
+		return ret;
+	}
+	inline int fprintf(FILE* fp, const char* fmt, ...) {
+		va_list ap;
+		va_start(ap, fmt);
+		int ret = util::vfprintf(fp, fmt, ap);
+		va_end(ap);
+		return ret;
+	}
+}  // namespace util
