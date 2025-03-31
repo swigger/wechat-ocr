@@ -39,7 +39,7 @@ class WechatOCR
     {
         StringResult stringResult = new StringResult();
         SetResultDelegate setRes = new SetResultDelegate(stringResult.SetResult);
-        bool success = wechat_ocr(ocr_exe, wechat_dir, Encoding.UTF8.GetBytes(imgfn), setRes);
+        bool success = wechat_ocr(ocr_exe, wechat_dir, Encoding.UTF8.GetBytes(imgfn + "\0"), setRes);
         res = stringResult.GetResult();
         return success;
     }
