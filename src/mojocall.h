@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <stdarg.h>
 #include "mmmojo.h"
 
 #ifdef _WIN32
