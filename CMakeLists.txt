@@ -25,7 +25,7 @@ else()
 	include(FetchContent)
 	FetchContent_Declare(protobuf
 		GIT_REPOSITORY https://github.com/protocolbuffers/protobuf.git
-		GIT_TAG v3.21.0
+		GIT_TAG v3.21.2
 		)
 	set(protobuf_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 	set(protobuf_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
