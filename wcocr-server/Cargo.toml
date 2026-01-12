@@ -1,0 +1,16 @@
+[package]
+name = "wcocr-server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+axum = { version = "0.7", features = ["multipart"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+clap = { version = "4", features = ["derive", "env"] }
+tower = { version = "0.4", features = ["limit"] }
+tempfile = "3"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+libloading = "0.8"

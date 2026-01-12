@@ -31,6 +31,8 @@ extern "C" EXPORTED_API
 bool wechat_ocr(LPCTSTR ocr_exe, LPCTSTR wechat_dir, const char * imgfn, void(*set_res)(const char * dt))
 {
 	if (!g_instance) {
+		if (!ocr_exe || !wechat_dir || !*ocr_exe || !*wechat_dir)
+			return false;
 		auto ocr = std::make_unique<CWeChatOCR>(ocr_exe, wechat_dir);
 		if (!ocr->wait_connection(5000)) {
 			return false;
@@ -38,30 +40,34 @@ bool wechat_ocr(LPCTSTR ocr_exe, LPCTSTR wechat_dir, const char * imgfn, void(*s
 		g_instance = std::move(ocr);
 	}
 
-	CWeChatOCR::result_t res;
-	if (!g_instance->doOCR(imgfn, &res))
-		return false;
 	string json;
-	json += "{";
-	json += "\"errcode\":" + std::to_string(res.errcode) + ",";
-	json += "\"imgpath\":\"" + json_encode(res.imgpath) + "\",";
-	json += "\"width\":" + std::to_string(res.width) + ",";
-	json += "\"height\":" + std::to_string(res.height) + ",";
-	json += "\"ocr_response\":[";
-	for (auto& blk : res.ocr_response) {
+	if (!imgfn || !*imgfn) {
+		json = "{\"errcode\":0}";
+	} else {
+		CWeChatOCR::result_t res;
+		if (!g_instance->doOCR(imgfn, &res))
+			return false;
 		json += "{";
-		json += "\"left\":" + std::to_string(blk.left) + ",";
-		json += "\"top\":" + std::to_string(blk.top) + ",";
-		json += "\"right\":" + std::to_string(blk.right) + ",";
-		json += "\"bottom\":" + std::to_string(blk.bottom) + ",";
-		json += "\"rate\":" + std::to_string(blk.rate) + ",";
-		json += "\"text\":\"" + json_encode(blk.text) + "\"";
-		json += "},";
+		json += "\"errcode\":" + std::to_string(res.errcode) + ",";
+		json += "\"imgpath\":\"" + json_encode(res.imgpath) + "\",";
+		json += "\"width\":" + std::to_string(res.width) + ",";
+		json += "\"height\":" + std::to_string(res.height) + ",";
+		json += "\"ocr_response\":[";
+		for (auto& blk : res.ocr_response) {
+			json += "{";
+			json += "\"left\":" + std::to_string(blk.left) + ",";
+			json += "\"top\":" + std::to_string(blk.top) + ",";
+			json += "\"right\":" + std::to_string(blk.right) + ",";
+			json += "\"bottom\":" + std::to_string(blk.bottom) + ",";
+			json += "\"rate\":" + std::to_string(blk.rate) + ",";
+			json += "\"text\":\"" + json_encode(blk.text) + "\"";
+			json += "},";
+		}
+		if (json.back() == ',') {
+			json.pop_back();
+		}
+		json += "]}";
 	}
-	if (json.back() == ',') {
-		json.pop_back();
-	}
-	json += "]}";
 	if (set_res) {
 		set_res(json.c_str());
 	}
