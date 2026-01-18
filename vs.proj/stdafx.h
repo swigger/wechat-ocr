@@ -1,6 +1,7 @@
 ﻿#pragma once
 #ifdef _WIN32
 #define _WIN32_LEAN_AND_MEAN
+#define NOMINMAX
 #include <Windows.h>
 #else
 #include <unistd.h>

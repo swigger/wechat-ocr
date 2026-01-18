@@ -61,6 +61,22 @@ bool wechat_ocr(LPCTSTR ocr_exe, LPCTSTR wechat_dir, const char * imgfn, void(*s
 			json += "\"bottom\":" + std::to_string(blk.bottom) + ",";
 			json += "\"rate\":" + std::to_string(blk.rate) + ",";
 			json += "\"text\":\"" + json_encode(blk.text) + "\"";
+			if (!blk.details.empty()) {
+				json += ",\"details\":[";
+				for (auto& ch : blk.details) {
+					json += "{";
+					json += "\"chars\":\"" + json_encode(ch.chars) + "\",";
+					json += "\"left\":" + std::to_string(ch.left) + ",";
+					json += "\"top\":" + std::to_string(ch.top) + ",";
+					json += "\"right\":" + std::to_string(ch.right) + ",";
+					json += "\"bottom\":" + std::to_string(ch.bottom) + "";
+					json += "},";
+				}
+				if (json.back() == ',') {
+					json.pop_back();
+				}
+				json += "]";
+			}
 			json += "},";
 		}
 		if (json.back() == ',') {

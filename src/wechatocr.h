@@ -4,10 +4,15 @@
 class EXPORTED_API CWeChatOCR : protected CMojoCall
 {
 public:
+	struct simple_t {
+		string chars;
+		float left, top, right, bottom;
+	};
 	struct text_block_t {
 		float left, top, right, bottom;
 		float rate;
 		string text;
+		std::vector<simple_t> details;
 	};
 	struct result_t {
 		string imgpath;

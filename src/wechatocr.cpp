@@ -194,13 +194,25 @@ void CWeChatOCR::ReadOnPush(uint32_t request_id, std::span<std::byte> request_in
 		res.ocr_response.reserve(ores.lines_size());
 		for (int i = 0, mi = ores.lines_size(); i < mi; ++i) {
 			text_block_t tb;
-			const auto& single_result = ores.lines(i);
+			const ocr_common::OCRResultLine& single_result = ores.lines(i);
 			tb.left = single_result.left();
 			tb.top = single_result.top();
 			tb.right = single_result.right();
 			tb.bottom = single_result.bottom();
 			tb.rate = single_result.rate();
 			tb.text = single_result.text();
+			for (auto & block : single_result.blocks()) {
+				simple_t sb;
+				sb.chars = block.chars();
+				if (sb.chars.empty() || !block.has_char_box())
+					continue;
+				const ocr_common::Box & cb1 = block.char_box();
+				sb.left = std::min(cb1.bottomleft().x(), cb1.topleft().x());
+				sb.top = std::min(cb1.topleft().y(), cb1.topright().y());
+				sb.right = std::max(cb1.topright().x(), cb1.bottomright().x());
+				sb.bottom = std::max(cb1.bottomright().y(), cb1.bottomleft().y());
+				tb.details.push_back(std::move(sb));
+			}
 			// printf("{%.1f,%.1f,%.1f,%.1f}: \"%s\", rate=%.3f\n", tb.left, tb.top, tb.right, tb.bottom, tb.text.c_str(), tb.rate);
 			res.ocr_response.push_back(std::move(tb));
 		}
