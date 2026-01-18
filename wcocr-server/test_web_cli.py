@@ -5,7 +5,7 @@ import urllib.request
 import urllib.error
 from pathlib import Path
 
-def ocr(image_path: str, server_url: str = "http://127.0.0.1:8080/ocr") -> dict:
+def ocr(image_path: str, server_url: str = "http://127.0.0.1:3060/ocr") -> dict:
     path = Path(image_path)
     if not path.exists():
         raise FileNotFoundError(f"Image not found: {image_path}")
